@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.butVerMapa = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // butVerMapa
+            // 
+            this.butVerMapa.Location = new System.Drawing.Point(130, 97);
+            this.butVerMapa.Name = "butVerMapa";
+            this.butVerMapa.Size = new System.Drawing.Size(113, 66);
+            this.butVerMapa.TabIndex = 0;
+            this.butVerMapa.Text = "Ver Simulación";
+            this.butVerMapa.UseVisualStyleBackColor = true;
+            this.butVerMapa.Click += new System.EventHandler(this.ButVerMapa_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(377, 286);
+            this.Controls.Add(this.butVerMapa);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button butVerMapa;
     }
 }
 

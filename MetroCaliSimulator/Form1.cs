@@ -12,9 +12,18 @@ namespace MetroCaliSimulator
 {
     public partial class Form1 : Form
     {
+        public MapaMio elMapaMio { get; set; }
         public Form1()
         {
             InitializeComponent();
+            elMapaMio = new MapaMio(this);
+        }
+
+        private void ButVerMapa_Click(object sender, EventArgs e)
+        {
+            elMapaMio.Show();
+            elMapaMio.cargarMapa();
+            this.Visible = false;
         }
     }
 }
