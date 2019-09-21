@@ -31,6 +31,12 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.gMapMapaMio = new GMap.NET.WindowsForms.GMapControl();
             this.butRegresar = new System.Windows.Forms.Button();
+            this.comboFiltrar = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.butGraficar = new System.Windows.Forms.Button();
+            this.butEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // splitter1
@@ -73,25 +79,96 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(796, 170);
+            this.butRegresar.Location = new System.Drawing.Point(747, 426);
             this.butRegresar.Name = "butRegresar";
-            this.butRegresar.Size = new System.Drawing.Size(75, 23);
+            this.butRegresar.Size = new System.Drawing.Size(121, 55);
             this.butRegresar.TabIndex = 2;
             this.butRegresar.Text = "Regresar";
             this.butRegresar.UseVisualStyleBackColor = true;
             this.butRegresar.Click += new System.EventHandler(this.ButRegresar_Click);
+            // 
+            // comboFiltrar
+            // 
+            this.comboFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboFiltrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboFiltrar.FormattingEnabled = true;
+            this.comboFiltrar.Items.AddRange(new object[] {
+            "Estaciones",
+            "Troncales",
+            "Todas"});
+            this.comboFiltrar.Location = new System.Drawing.Point(747, 28);
+            this.comboFiltrar.Name = "comboFiltrar";
+            this.comboFiltrar.Size = new System.Drawing.Size(121, 21);
+            this.comboFiltrar.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(726, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Filtrar Paradas";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(726, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Buscar Parada";
+            // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBuscar.Location = new System.Drawing.Point(747, 84);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(121, 20);
+            this.textBoxBuscar.TabIndex = 6;
+            // 
+            // butGraficar
+            // 
+            this.butGraficar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butGraficar.Location = new System.Drawing.Point(747, 125);
+            this.butGraficar.Name = "butGraficar";
+            this.butGraficar.Size = new System.Drawing.Size(121, 55);
+            this.butGraficar.TabIndex = 7;
+            this.butGraficar.Text = "Graficar";
+            this.butGraficar.UseVisualStyleBackColor = true;
+            this.butGraficar.Click += new System.EventHandler(this.ButGraficar_Click);
+            // 
+            // butEliminar
+            // 
+            this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butEliminar.Location = new System.Drawing.Point(747, 198);
+            this.butEliminar.Name = "butEliminar";
+            this.butEliminar.Size = new System.Drawing.Size(121, 55);
+            this.butEliminar.TabIndex = 8;
+            this.butEliminar.Text = "Eliminar Marcadores";
+            this.butEliminar.UseVisualStyleBackColor = true;
+            this.butEliminar.Click += new System.EventHandler(this.ButEliminar_Click);
             // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 504);
+            this.Controls.Add(this.butEliminar);
+            this.Controls.Add(this.butGraficar);
+            this.Controls.Add(this.textBoxBuscar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboFiltrar);
             this.Controls.Add(this.butRegresar);
             this.Controls.Add(this.gMapMapaMio);
             this.Controls.Add(this.splitter1);
             this.Name = "MapaMio";
             this.Text = "MapaMio";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,5 +177,11 @@
         private System.Windows.Forms.Splitter splitter1;
         private GMap.NET.WindowsForms.GMapControl gMapMapaMio;
         private System.Windows.Forms.Button butRegresar;
+        private System.Windows.Forms.ComboBox comboFiltrar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Button butGraficar;
+        private System.Windows.Forms.Button butEliminar;
     }
 }

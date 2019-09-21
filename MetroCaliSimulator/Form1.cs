@@ -22,6 +22,8 @@ namespace MetroCaliSimulator
             InitializeComponent();
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
+            //dataRead();
+            deserializar();
         }
 
         private void ButVerMapa_Click(object sender, EventArgs e)
@@ -41,9 +43,30 @@ namespace MetroCaliSimulator
         public void deserializar()
         {
             BinaryFormatter formateador = new BinaryFormatter();
-            FileStream fs = new FileStream("DaticosDesnutricion.txt", FileMode.Open);
+            FileStream fs = new FileStream("DataMio.txt", FileMode.Open);
             theMio = (MioSystem)formateador.Deserialize(fs);
             fs.Close();
+        }
+        public void dataRead() {
+            StreamReader read = new StreamReader(@"C:\Users\Juan Puerta\Documents\stopsDefinitivo.csv");
+            String line = "";
+            while (!read.EndOfStream) {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                if (infoStop[0].StartsWith("5")) {
+                    Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                    theMio.stopStreets.Add(newStop);
+                    theMio.theStop.Add(newStop.stopid, newStop);
+                    Console.WriteLine("{0}", newStop.stopid);
+                }
+                else {
+                    Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                    theMio.stopStations.Add(newStop);
+                    theMio.theStop.Add(newStop.stopid, newStop);
+                    Console.WriteLine("{0}", newStop.stopid);
+                }
+            }
+            serializar();
         }
     }
 }

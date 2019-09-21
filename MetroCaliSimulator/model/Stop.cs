@@ -11,7 +11,7 @@ namespace MetroCaliSimulator.model
     public class Stop
     {
 
-        public int stopid { get; set; }
+        public string stopid { get; set; }
         public int planVersionId { get; set; }
         public String shortName { get; set; }
         public String longName { get; set; }
@@ -20,7 +20,7 @@ namespace MetroCaliSimulator.model
         public double decLong { get; set; }
         public double decLat { get; set; }
 
-        public Stop(int stopid, int planVersionId, string shortName, string longName, int gpsX, int gpsY, double decLong, double decLat)
+        public Stop(string stopid, int planVersionId, string shortName, string longName, int gpsX, int gpsY, double decLong, double decLat)
         {
             this.stopid = stopid;
             this.planVersionId = planVersionId;
