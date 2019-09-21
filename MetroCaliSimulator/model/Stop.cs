@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace MetroCaliSimulator.model
 {
-    class Stop
+    [Serializable]
+    public class Stop
     {
-        public List<Stop> stopStations { get; set; }
-        public List<Stop> stopStreets { get; set; }
-
-        public Hashtable theStop;
-
 
         public int stopid { get; set; }
         public int planVersionId { get; set; }
@@ -34,9 +30,6 @@ namespace MetroCaliSimulator.model
             this.gpsY = gpsY;
             this.decLong = decLong;
             this.decLat = decLat;
-            this.theStop = new Hashtable();
-            this.stopStations = new List<Stop>();
-            this.stopStreets = new List<Stop>();
         }
 
 
