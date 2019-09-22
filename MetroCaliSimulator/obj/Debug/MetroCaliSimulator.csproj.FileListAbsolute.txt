@@ -50,3 +50,29 @@ C:\Users\hp\Desktop\5 semestre\Integrador\MetroCaliSimulator\MetroCaliSimulator\
 C:\Users\hp\Desktop\5 semestre\Integrador\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.csproj.CopyComplete
 C:\Users\hp\Desktop\5 semestre\Integrador\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.exe
 C:\Users\hp\Desktop\5 semestre\Integrador\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.pdb
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\MetroCaliSimulator.exe.config
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\MetroCaliSimulator.exe
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\MetroCaliSimulator.pdb
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\EntityFramework.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\EntityFramework.SqlServer.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\GMap.NET.Core.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\GMap.NET.WindowsForms.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\GMap.NET.WindowsPresentation.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\Newtonsoft.Json.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\System.Data.SQLite.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\System.Data.SQLite.EF6.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\System.Data.SQLite.Linq.dll
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\EntityFramework.xml
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\EntityFramework.SqlServer.xml
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\Newtonsoft.Json.xml
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\System.Data.SQLite.xml
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\bin\Debug\System.Data.SQLite.dll.config
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.csprojAssemblyReference.cache
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.Form1.resources
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.MapaMio.resources
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.Properties.Resources.resources
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.csproj.GenerateResource.cache
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.csproj.CoreCompileInputs.cache
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.csproj.CopyComplete
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.exe
+E:\PROYECTOS\MetroCaliSimulator\MetroCaliSimulator\obj\Debug\MetroCaliSimulator.pdb

@@ -42,43 +42,45 @@ namespace MetroCaliSimulator
 
         private void ButGraficar_Click(object sender, EventArgs e)
         {
-            if (comboFiltrar.Text.Equals("Estaciones"))
+            if (textBoxBuscar.Text.Equals(""))
             {
-                int n = laVentana.theMio.stopStations.Count;
-                for (int i = 0; i < n; i++)
+
+                if (comboFiltrar.Text.Equals("Estaciones"))
                 {
-                    Stop theStop = laVentana.theMio.stopStations[i];
-                    stationsMarket(theStop.decLat, theStop.decLong);
+                    int n = laVentana.theMio.stopStations.Count;
+                    for (int i = 0; i < n; i++)
+                    {
+                        Stop theStop = laVentana.theMio.stopStations[i];
+                        stationsMarket(theStop.decLat, theStop.decLong);
+                    }
                 }
-            }
-            else if (comboFiltrar.Text.Equals("Troncales"))
-            {
-                int n = laVentana.theMio.stopStreets.Count;
-                for (int i = 0; i < n; i++)
+                else if (comboFiltrar.Text.Equals("Troncales"))
                 {
-                    Stop theStop = laVentana.theMio.stopStreets[i];
-                    streetsMarket(theStop.decLat, theStop.decLong);
+                    int n = laVentana.theMio.stopStreets.Count;
+                    for (int i = 0; i < n; i++)
+                    {
+                        Stop theStop = laVentana.theMio.stopStreets[i];
+                        streetsMarket(theStop.decLat, theStop.decLong);
+                    }
                 }
-            }
-            else if(comboFiltrar.Text.Equals("Todas"))
-            {
-                int n1 = laVentana.theMio.stopStations.Count;
-                for (int i = 0; i < n1; i++)
+                else if (comboFiltrar.Text.Equals("Todas"))
                 {
-                    Stop theStop = laVentana.theMio.stopStations[i];
-                    stationsMarket(theStop.decLat, theStop.decLong);
-                }
-                int n2 = laVentana.theMio.stopStreets.Count;
-                for (int i = 0; i < n2; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStreets[i];
-                    streetsMarket(theStop.decLat, theStop.decLong);
+                    int n1 = laVentana.theMio.stopStations.Count;
+                    for (int i = 0; i < n1; i++)
+                    {
+                        Stop theStop = laVentana.theMio.stopStations[i];
+                        stationsMarket(theStop.decLat, theStop.decLong);
+                    }
+                    int n2 = laVentana.theMio.stopStreets.Count;
+                    for (int i = 0; i < n2; i++)
+                    {
+                        Stop theStop = laVentana.theMio.stopStreets[i];
+                        streetsMarket(theStop.decLat, theStop.decLong);
+                    }
                 }
             }
             comboFiltrar.Text = "";
-            if (!textBoxBuscar.Text.Equals("")) {
-                search(textBoxBuscar.Text);
-            }
+            search(textBoxBuscar.Text);
             textBoxBuscar.Text = "";
         }
 
@@ -121,16 +123,23 @@ namespace MetroCaliSimulator
             }
         }
 
-        public void search(String id) {
-            Stop theStop = (Stop)(laVentana.theMio.theStop[id]);
-            PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
-            GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
-
-            GMapOverlay markers = new GMapOverlay("markers");
-            markers.Markers.Add(theMarker);
-            gMapMapaMio.Overlays.Add(markers);
-            //gMapMapaMio.Refresh();
+        private void search(String id)
+        {
+            if (comboFiltrar.Text.Equals("Estaciones"))
+            {
+                Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
+                if (searched != null)
+                {
+                    stationsMarket(searched.decLat, searched.decLong);
+                }
+            }
+            else {
+                Stop searched = laVentana.theMio.stopStreets.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
+                if (searched != null)
+                {
+                    streetsMarket(searched.decLat, searched.decLong);
+                }
+            }
         }
-
     }
 }
