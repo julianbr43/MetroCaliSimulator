@@ -60,7 +60,8 @@ namespace MetroCaliSimulator
                     streetsMarket(theStop.decLat, theStop.decLong);
                 }
             }
-            else {
+            else if(comboFiltrar.Text.Equals("Todas"))
+            {
                 int n1 = laVentana.theMio.stopStations.Count;
                 for (int i = 0; i < n1; i++)
                 {
@@ -74,6 +75,11 @@ namespace MetroCaliSimulator
                     streetsMarket(theStop.decLat, theStop.decLong);
                 }
             }
+            comboFiltrar.Text = "";
+            if (!textBoxBuscar.Text.Equals("")) {
+                search(textBoxBuscar.Text);
+            }
+            textBoxBuscar.Text = "";
         }
 
         private void stationsMarket(double lat, double lng) {
@@ -114,5 +120,17 @@ namespace MetroCaliSimulator
                 gMapMapaMio.Refresh();
             }
         }
+
+        public void search(String id) {
+            Stop theStop = (Stop)(laVentana.theMio.theStop[id]);
+            PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
+            GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+            GMapOverlay markers = new GMapOverlay("markers");
+            markers.Markers.Add(theMarker);
+            gMapMapaMio.Overlays.Add(markers);
+            //gMapMapaMio.Refresh();
+        }
+
     }
 }
