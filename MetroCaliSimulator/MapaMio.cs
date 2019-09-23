@@ -125,7 +125,16 @@ namespace MetroCaliSimulator
 
         private void search(String id)
         {
-            if (comboFiltrar.Text.Equals("Estaciones"))
+            if (id.StartsWith("5") || id.StartsWith("6")) {
+                Stop searched = (Stop)(laVentana.theMio.theStop[id]);
+                PointLatLng point = new PointLatLng(searched.decLat, searched.decLong);
+                GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                GMapOverlay markers = new GMapOverlay("markers");
+                markers.Markers.Add(theMarker);
+                gMapMapaMio.Overlays.Add(markers);
+            }
+            else if (comboFiltrar.Text.Equals("Estaciones"))
             {
                 Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
