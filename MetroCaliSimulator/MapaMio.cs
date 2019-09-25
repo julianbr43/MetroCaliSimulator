@@ -51,7 +51,7 @@ namespace MetroCaliSimulator
                     for (int i = 0; i < n; i++)
                     {
                         Stop theStop = laVentana.theMio.stopStations[i];
-                        stationsMarket(theStop.decLat, theStop.decLong);
+                        stationsMarket(theStop);
                     }
                 }
                 else if (comboFiltrar.Text.Equals("Troncales"))
@@ -60,7 +60,7 @@ namespace MetroCaliSimulator
                     for (int i = 0; i < n; i++)
                     {
                         Stop theStop = laVentana.theMio.stopStreets[i];
-                        streetsMarket(theStop.decLat, theStop.decLong);
+                        streetsMarket(theStop);
                     }
                 }
                 else if (comboFiltrar.Text.Equals("Todas"))
@@ -69,13 +69,13 @@ namespace MetroCaliSimulator
                     for (int i = 0; i < n1; i++)
                     {
                         Stop theStop = laVentana.theMio.stopStations[i];
-                        stationsMarket(theStop.decLat, theStop.decLong);
+                        stationsMarket(theStop);
                     }
                     int n2 = laVentana.theMio.stopStreets.Count;
                     for (int i = 0; i < n2; i++)
                     {
                         Stop theStop = laVentana.theMio.stopStreets[i];
-                        streetsMarket(theStop.decLat, theStop.decLong);
+                        streetsMarket(theStop);
                     }
                 }
             }
@@ -84,30 +84,26 @@ namespace MetroCaliSimulator
             textBoxBuscar.Text = "";
         }
 
-        private void stationsMarket(double lat, double lng) {
-            //removeMarkers();
-            PointLatLng point = new PointLatLng(lat, lng);
+        private void stationsMarket(Stop theStop) {
+            PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
             GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.blue_dot);
 
+            addLabelPoint(theMarker, theStop);
+
             GMapOverlay markers = new GMapOverlay("markers");
-            //gMapMapaMio.Overlays.Remove(markers);
-            //gMapMapaMio.Refresh();
             markers.Markers.Add(theMarker);
             gMapMapaMio.Overlays.Add(markers);
-            //gMapMapaMio.Refresh();
         }
 
-        private void streetsMarket(double lat, double lng) {
-            //removeMarkers();
-            PointLatLng point = new PointLatLng(lat, lng);
+        private void streetsMarket(Stop theStop) {
+            PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
             GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.red_dot);
 
+            addLabelPoint(theMarker, theStop);
+
             GMapOverlay markers = new GMapOverlay("markers");
-            //gMapMapaMio.Overlays.Remove(markers);
-            //gMapMapaMio.Refresh();
             markers.Markers.Add(theMarker);
             gMapMapaMio.Overlays.Add(markers);
-            //gMapMapaMio.Refresh();
         }
 
         private void ButEliminar_Click(object sender, EventArgs e)
@@ -139,16 +135,27 @@ namespace MetroCaliSimulator
                 Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
                 {
-                    stationsMarket(searched.decLat, searched.decLong);
+                    stationsMarket(searched);
                 }
             }
             else {
                 Stop searched = laVentana.theMio.stopStreets.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
                 {
-                    streetsMarket(searched.decLat, searched.decLong);
+                    streetsMarket(searched);
                 }
             }
         }
+
+        private void addLabelPoint(GMapMarker theMarker, Stop theStop) {
+            theMarker.ToolTipText = $"Nombre: {theStop.longName}, \nNombre corto: {theStop.shortName}";
+
+            GMapToolTip theTip = new GMapToolTip(theMarker);
+            theTip.Fill = new SolidBrush(Color.Gray);
+            theTip.Foreground = new SolidBrush(Color.Black);
+
+            theMarker.ToolTip = theTip;
+        }
+
     }
 }
