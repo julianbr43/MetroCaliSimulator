@@ -48,23 +48,29 @@ namespace MetroCaliSimulator
             fs.Close();
         }
         public void dataRead() {
-            StreamReader read = new StreamReader(@"C:\Users\Juan Puerta\Documents\stopsDefinitivo.csv");
+            StreamReader read;
+            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\stops.csv");
             String line = "";
-            while (!read.EndOfStream) {
+            while (!read.EndOfStream)
+            {
                 line = read.ReadLine();
                 String[] infoStop = line.Split(';');
-                if (infoStop[0].StartsWith("5")) {
-                    Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
-                    theMio.stopStreets.Add(newStop);
-                    theMio.theStop.Add(newStop.stopid, newStop);
-                    Console.WriteLine("{0}", newStop.stopid);
-                }
-                else {
-                    Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
-                    theMio.stopStations.Add(newStop);
-                    theMio.theStop.Add(newStop.stopid, newStop);
-                    Console.WriteLine("{0}", newStop.stopid);
-                }
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStreets.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\stopsStations.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStations.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
             }
             serializar();
         }
