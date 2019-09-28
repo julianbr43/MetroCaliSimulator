@@ -23,7 +23,8 @@ namespace MetroCaliSimulator
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
             //dataRead();
-            deserializar();
+            //deserializar();
+            dataReadBus();
         }
 
         private void ButVerMapa_Click(object sender, EventArgs e)
@@ -74,5 +75,7 @@ namespace MetroCaliSimulator
             }
             serializar();
         }
+
+        
     }
 }

@@ -11,6 +11,7 @@ namespace MetroCaliSimulator.model
     [Serializable]
     public class MioSystem
     {
+        public Hashtable theBusTime { get; set; }
         public List<Stop> stopStations { get; set; }
         public List<Stop> stopStreets { get; set; }
         public Hashtable theStop { get; set; }
@@ -19,6 +20,7 @@ namespace MetroCaliSimulator.model
             this.theStop = new Hashtable();
             this.stopStations = new List<Stop>();
             this.stopStreets = new List<Stop>();
+            this.theBusTime = new Hashtable();
         }
 
     }

@@ -88,6 +88,7 @@
     <Compile Include="MapaMio.Designer.cs">
       <DependentUpon>MapaMio.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Bus.cs" />
     <Compile Include="model\MioSystem.cs" />
     <Compile Include="model\Stop.cs" />
     <Compile Include="Program.cs" />
