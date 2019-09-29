@@ -12,7 +12,7 @@ namespace MetroCaliSimulator.model
     public class MioSystem
     {
         public List<Zona> zonas { get; set; }
-        public Hashtable theBusTime { get; set; }
+        public Queue<List<Bus>> theBusTime { get; set; }
         public List<Stop> stopStations { get; set; }
         public List<Stop> stopStreets { get; set; }
         public Hashtable theStop { get; set; }
@@ -22,7 +22,7 @@ namespace MetroCaliSimulator.model
             this.theStop = new Hashtable();
             this.stopStations = new List<Stop>();
             this.stopStreets = new List<Stop>();
-            this.theBusTime = new Hashtable();
+            this.theBusTime = new Queue<List<Bus>>();
             this.zonas = new List<Zona>();
             loadZones();
         }

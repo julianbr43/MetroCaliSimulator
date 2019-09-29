@@ -24,6 +24,7 @@ namespace MetroCaliSimulator
             theMio = new MioSystem();
             //dataRead();
             deserializar();
+            //busSimulationRead();
             //dataReadBus();
         }
 
@@ -77,6 +78,39 @@ namespace MetroCaliSimulator
 
 
             serializar();
+        }
+
+        private void busSimulationRead()
+        {
+            StreamReader read;
+            read = new StreamReader(@"C:\Users\Juan Puerta\Documents\LosDaticosPuntoDatos.xlsx");
+            String line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String date = "";
+                String dateCompare = "";
+                List<Bus> theListBus = new List<Bus>();
+                String[] infoBus = line.Split(';');
+                while (date.Equals(dateCompare))
+                {
+                    //infoBus = line.Split(';');
+                    date = infoBus[0];
+                    dateCompare = infoBus[0];
+                    Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
+                    theListBus.Add(theBus);
+                    theMio.theBusTime.Enqueue(theListBus);
+                    line = read.ReadLine();
+                    if (line == null || line.Equals(""))
+                    {
+                        line = "-1;-1;-1;-1;-1;-1;-1;-1;-1;-1";
+                    }
+                    infoBus = line.Split(';');
+                    Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
+                    dateCompare = infoBus[0];
+                }
+            }
+            //serializar();
         }
 
 
