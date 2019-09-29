@@ -47,12 +47,7 @@ namespace MetroCaliSimulator
 
                 if (comboFiltrar.Text.Equals("Estaciones"))
                 {
-                    int n = laVentana.theMio.stopStations.Count;
-                    for (int i = 0; i < n; i++)
-                    {
-                        Stop theStop = laVentana.theMio.stopStations[i];
-                        stationsMarket(theStop);
-                    }
+                    loadStopsStations();
                 }
                 else if (comboFiltrar.Text.Equals("Troncales"))
                 {
@@ -65,12 +60,7 @@ namespace MetroCaliSimulator
                 }
                 else if (comboFiltrar.Text.Equals("Todas"))
                 {
-                    int n1 = laVentana.theMio.stopStations.Count;
-                    for (int i = 0; i < n1; i++)
-                    {
-                        Stop theStop = laVentana.theMio.stopStations[i];
-                        stationsMarket(theStop);
-                    }
+                    loadStopsStations();
                     int n2 = laVentana.theMio.stopStreets.Count;
                     for (int i = 0; i < n2; i++)
                     {
@@ -132,7 +122,7 @@ namespace MetroCaliSimulator
             }
             else if (comboFiltrar.Text.Equals("Estaciones"))
             {
-                Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
+                Stop searched = laVentana.theMio.stopStationsZone0.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
                 {
                     stationsMarket(searched);
@@ -157,5 +147,74 @@ namespace MetroCaliSimulator
             theMarker.ToolTip = theTip;
         }
 
+        public void loadStopsStations() {
+            if (checkBox1.Checked==true) {
+                int n = laVentana.theMio.stopStationsZone0.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone0[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox2.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone1.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone1[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox3.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone2.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone2[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox4.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone3.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone3[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox5.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone4.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone4[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox6.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone5.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone5[i];
+                    stationsMarket(theStop);
+                }
+            }
+            if (checkBox7.Checked == true)
+            {
+                int n = laVentana.theMio.stopStationsZone7.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Stop theStop = laVentana.theMio.stopStationsZone7[i];
+                    stationsMarket(theStop);
+                }
+            }
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

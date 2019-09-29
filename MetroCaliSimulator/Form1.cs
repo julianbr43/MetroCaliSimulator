@@ -23,8 +23,8 @@ namespace MetroCaliSimulator
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
             //dataRead();
-            //deserializar();
-            dataReadBus();
+            deserializar();
+            //dataReadBus();
         }
 
         private void ButVerMapa_Click(object sender, EventArgs e)
@@ -50,9 +50,9 @@ namespace MetroCaliSimulator
         }
         public void dataRead() {
             StreamReader read;
-            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\stops.csv");
+            //read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\stops.csv");
             String line = "";
-            while (!read.EndOfStream)
+           /* while (!read.EndOfStream)
             {
                 line = read.ReadLine();
                 String[] infoStop = line.Split(';');
@@ -60,19 +60,92 @@ namespace MetroCaliSimulator
                 theMio.stopStreets.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
                 Console.WriteLine("{0}", newStop.stopid);
-            }
-
-            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\stopsStations.csv");
+            }*/
+        
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone0.csv");
             line = "";
             while (!read.EndOfStream)
             {
                 line = read.ReadLine();
                 String[] infoStop = line.Split(';');
                 Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
-                theMio.stopStations.Add(newStop);
+                theMio.stopStationsZone0.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
                 Console.WriteLine("{0}", newStop.stopid);
             }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone1.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone1.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone2.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone2.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone3.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone3.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone4.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone4.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone5.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone5.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
+            read = new StreamReader(@"E:\PROYECTOS\stopsStationZone7.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoStop = line.Split(';');
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                theMio.stopStationsZone7.Add(newStop);
+                theMio.theStop.Add(newStop.stopid, newStop);
+                Console.WriteLine("{0}", newStop.stopid);
+            }
+
             serializar();
         }
 
