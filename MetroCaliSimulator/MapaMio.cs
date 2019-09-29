@@ -47,26 +47,15 @@ namespace MetroCaliSimulator
 
                 if (comboFiltrar.Text.Equals("Estaciones"))
                 {
-                    loadStopsStations();
+                    loadStops(1);
                 }
                 else if (comboFiltrar.Text.Equals("Troncales"))
                 {
-                    int n = laVentana.theMio.stopStreets.Count;
-                    for (int i = 0; i < n; i++)
-                    {
-                        Stop theStop = laVentana.theMio.stopStreets[i];
-                        streetsMarket(theStop);
-                    }
+                    loadStops(2);
                 }
                 else if (comboFiltrar.Text.Equals("Todas"))
                 {
-                    loadStopsStations();
-                    int n2 = laVentana.theMio.stopStreets.Count;
-                    for (int i = 0; i < n2; i++)
-                    {
-                        Stop theStop = laVentana.theMio.stopStreets[i];
-                        streetsMarket(theStop);
-                    }
+                    loadStops(3);
                 }
             }
             refreshMap();
@@ -123,7 +112,7 @@ namespace MetroCaliSimulator
             }
             else if (comboFiltrar.Text.Equals("Estaciones"))
             {
-                Stop searched = laVentana.theMio.stopStationsZone0.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
+                Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
                 {
                     stationsMarket(searched);
@@ -148,70 +137,150 @@ namespace MetroCaliSimulator
             theMarker.ToolTip = theTip;
         }
 
-        public void loadStopsStations() {
-            if (checkBox1.Checked==true) {
-                int n = laVentana.theMio.stopStationsZone0.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone0[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox2.Checked == true)
+        private void station(int zone)
+        {
+            int n = laVentana.theMio.stopStations.Count;
+            for (int i = 0; i < n; i++)
             {
-                int n = laVentana.theMio.stopStationsZone1.Count;
-                for (int i = 0; i < n; i++)
+                Stop theStop = laVentana.theMio.stopStations[i];
+                if (laVentana.theMio.isZone(theStop.decLat, theStop.decLong) == zone)
                 {
-                    Stop theStop = laVentana.theMio.stopStationsZone1[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox3.Checked == true)
-            {
-                int n = laVentana.theMio.stopStationsZone2.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone2[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox4.Checked == true)
-            {
-                int n = laVentana.theMio.stopStationsZone3.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone3[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox5.Checked == true)
-            {
-                int n = laVentana.theMio.stopStationsZone4.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone4[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox6.Checked == true)
-            {
-                int n = laVentana.theMio.stopStationsZone5.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone5[i];
-                    stationsMarket(theStop);
-                }
-            }
-            if (checkBox7.Checked == true)
-            {
-                int n = laVentana.theMio.stopStationsZone7.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    Stop theStop = laVentana.theMio.stopStationsZone7[i];
                     stationsMarket(theStop);
                 }
             }
         }
+
+        private void street(int zone)
+        {
+            for (int i = 0; i < laVentana.theMio.stopStreets.Count; i++)
+            {
+                Stop theStop = laVentana.theMio.stopStreets[i];
+                if (laVentana.theMio.isZone(theStop.decLat, theStop.decLong) == zone)
+                {
+                    streetsMarket(theStop);
+                }
+            }
+        }
+
+        public void loadStops(int option)
+        {
+            if (checkBox1.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(0);
+                }
+                else if (option == 2)
+                {
+                    street(0);
+                }
+                else
+                {
+                    station(0);
+                    street(0);
+                }
+            }
+            if (checkBox2.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(1);
+                }
+                else if (option == 2)
+                {
+                    street(1);
+                }
+                else
+                {
+                    station(1);
+                    street(1);
+                }
+            }
+            if (checkBox3.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(2);
+                }
+                else if (option == 2)
+                {
+                    street(2);
+                }
+                else
+                {
+                    station(2);
+                    street(2);
+                }
+            }
+            if (checkBox4.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(3);
+                }
+                else if (option == 2)
+                {
+                    street(3);
+                }
+                else
+                {
+                    station(3);
+                    street(3);
+                }
+            }
+            if (checkBox5.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(4);
+                }
+                else if (option == 2)
+                {
+                    street(4);
+                }
+                else
+                {
+                    station(4);
+                    street(4);
+                }
+
+            }
+            if (checkBox6.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(5);
+                }
+                else if (option == 2)
+                {
+                    street(5);
+                }
+                else
+                {
+                    station(5);
+                    street(5);
+                }
+
+            }
+            if (checkBox7.Checked == true)
+            {
+                if (option == 1)
+                {
+                    station(6);
+                }
+                else if (option == 2)
+                {
+                    street(6);
+                }
+                else
+                {
+                    station(6);
+                    street(6);
+                }
+
+            }
+        }
+
 
         private void refreshMap() {
             gMapMapaMio.Zoom++;
@@ -219,6 +288,11 @@ namespace MetroCaliSimulator
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

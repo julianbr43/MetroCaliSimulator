@@ -91,6 +91,7 @@
     <Compile Include="model\Bus.cs" />
     <Compile Include="model\MioSystem.cs" />
     <Compile Include="model\Stop.cs" />
+    <Compile Include="model\Zona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

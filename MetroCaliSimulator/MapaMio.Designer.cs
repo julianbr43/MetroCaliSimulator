@@ -107,6 +107,7 @@
             this.comboFiltrar.Name = "comboFiltrar";
             this.comboFiltrar.Size = new System.Drawing.Size(121, 21);
             this.comboFiltrar.TabIndex = 3;
+            this.comboFiltrar.SelectedIndexChanged += new System.EventHandler(this.ComboFiltrar_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -161,73 +162,80 @@
             // checkBox1
             // 
             this.checkBox1.AccessibleName = "";
+            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(747, 120);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 17);
+            this.checkBox1.Size = new System.Drawing.Size(85, 17);
             this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "zona 0     Oeste";
+            this.checkBox1.Text = "Zona Centro";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // checkBox2
             // 
+            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(747, 143);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(89, 17);
+            this.checkBox2.Size = new System.Drawing.Size(121, 17);
             this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "zona 1     Sur";
+            this.checkBox2.Text = "Zona Universidades";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
+            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(747, 166);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(116, 17);
+            this.checkBox3.Size = new System.Drawing.Size(87, 17);
             this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "zona 2     Noroeste";
+            this.checkBox3.Text = "Zona Menga";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox4
             // 
+            this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(747, 189);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(122, 17);
+            this.checkBox4.Size = new System.Drawing.Size(114, 17);
             this.checkBox4.TabIndex = 12;
-            this.checkBox4.Text = "zona 3     Nororiente";
+            this.checkBox4.Text = "Zona Chiminangos";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox5
             // 
+            this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
             this.checkBox5.Location = new System.Drawing.Point(747, 212);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(107, 17);
+            this.checkBox5.Size = new System.Drawing.Size(117, 17);
             this.checkBox5.TabIndex = 13;
-            this.checkBox5.Text = "zona 4     Oriente";
+            this.checkBox5.Text = "Zona Andres Sanin";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox6
             // 
+            this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox6.AutoSize = true;
             this.checkBox6.Location = new System.Drawing.Point(747, 235);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(126, 17);
+            this.checkBox6.Size = new System.Drawing.Size(111, 17);
             this.checkBox6.TabIndex = 14;
-            this.checkBox6.Text = "zona 5     Sur Oriente";
+            this.checkBox6.Text = "Zona Aguablanca";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox7
             // 
+            this.checkBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox7.AutoSize = true;
             this.checkBox7.Location = new System.Drawing.Point(747, 258);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(122, 17);
+            this.checkBox7.Size = new System.Drawing.Size(116, 17);
             this.checkBox7.TabIndex = 15;
-            this.checkBox7.Text = "zona 7     Occidente";
+            this.checkBox7.Text = "Zona Cañaveralejo";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // MapaMio
