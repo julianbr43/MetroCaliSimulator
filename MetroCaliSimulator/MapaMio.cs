@@ -69,6 +69,7 @@ namespace MetroCaliSimulator
                     }
                 }
             }
+            refreshMap();
             comboFiltrar.Text = "";
             search(textBoxBuscar.Text);
             textBoxBuscar.Text = "";
@@ -210,6 +211,11 @@ namespace MetroCaliSimulator
                     stationsMarket(theStop);
                 }
             }
+        }
+
+        private void refreshMap() {
+            gMapMapaMio.Zoom++;
+            gMapMapaMio.Zoom--;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
