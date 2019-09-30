@@ -244,6 +244,7 @@
             // 
             // butInicio
             // 
+            this.butInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butInicio.Location = new System.Drawing.Point(717, 297);
             this.butInicio.Name = "butInicio";
             this.butInicio.Size = new System.Drawing.Size(75, 23);
@@ -254,6 +255,7 @@
             // 
             // butPausa
             // 
+            this.butPausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butPausa.Location = new System.Drawing.Point(814, 297);
             this.butPausa.Name = "butPausa";
             this.butPausa.Size = new System.Drawing.Size(75, 23);
