@@ -41,10 +41,10 @@ namespace MetroCaliSimulator.model
             Zona z3 = new Zona(3.516009, 3.449274, -76.505034, 76.449366); //Zona chiminangos
             zonas.Add(z3);
 
-            Zona z4 = new Zona(3.449274, 3.414548, -76.524088, -76.460200); //Zona Andres sanin(4)
+            Zona z4 = new Zona(3.449274, 3.442681, -76.524088, -76.460200); //Zona Andres sanin(4)
             zonas.Add(z4);
 
-            Zona z5 = new Zona(3.414548, 3.380145, -76.524088, -76.460200); //Zona Aguablanca(5)
+            Zona z5 = new Zona(3.442681, 3.380145, -76.524088, -76.460200); //Zona Aguablanca(5)
             zonas.Add(z5);
 
             Zona z7 = new Zona(3.441622, 3.380145, -76.598407, -76.524088); //Zona caniaveralejo(7)

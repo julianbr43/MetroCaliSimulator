@@ -22,8 +22,8 @@ namespace MetroCaliSimulator
             InitializeComponent();
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
-            //dataRead();
-            deserializar();
+            dataRead();
+            //deserializar();
             //busSimulationRead();
             //dataReadBus();
         }
