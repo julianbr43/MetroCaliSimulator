@@ -296,5 +296,44 @@ namespace MetroCaliSimulator
         {
 
         }
+
+        private void drawBus()
+        {
+            removeMarkers();
+            List<Bus> theDefinitiveList = laVentana.theMio.theBusTime.Dequeue();
+            Console.WriteLine("{0}", theDefinitiveList.First().dataGramDate);
+            int n = theDefinitiveList.Count();
+
+            for (int i = 0; i < n; i++)
+            {
+                //Console.WriteLine("{0}, {1}, {2}", theDefinitiveList[i].dataGramDate, i, n);
+                PointLatLng point = new PointLatLng(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude);
+                GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.blue_dot);
+
+
+                GMapOverlay markers = new GMapOverlay("markers");
+                markers.Markers.Add(theMarker);
+                gMapMapaMio.Overlays.Add(markers);
+            }
+            refreshMap();
+        }
+
+        private void ButInicio_Click(object sender, EventArgs e)
+        {
+            timerBuses.Enabled = true;
+            timerBuses.Start();
+        }
+
+        
+
+        private void TimerBuses_Tick(object sender, EventArgs e)
+        {
+            drawBus();
+        }
+
+        private void ButPausa_Click(object sender, EventArgs e)
+        {
+            timerBuses.Stop();
+        }
     }
 }

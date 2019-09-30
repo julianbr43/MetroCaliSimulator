@@ -22,8 +22,8 @@ namespace MetroCaliSimulator
             InitializeComponent();
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
-            dataRead();
-            //deserializar();
+            //dataRead();
+            deserializar();
             //busSimulationRead();
             //dataReadBus();
         }
@@ -99,7 +99,6 @@ namespace MetroCaliSimulator
                     dateCompare = infoBus[0];
                     Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
                     theListBus.Add(theBus);
-                    theMio.theBusTime.Enqueue(theListBus);
                     line = read.ReadLine();
                     if (line == null || line.Equals(""))
                     {
@@ -109,6 +108,7 @@ namespace MetroCaliSimulator
                     Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
                     dateCompare = infoBus[0];
                 }
+                theMio.theBusTime.Enqueue(theListBus);
             }
             //serializar();
         }

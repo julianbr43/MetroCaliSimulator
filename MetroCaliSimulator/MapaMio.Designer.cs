@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.gMapMapaMio = new GMap.NET.WindowsForms.GMapControl();
             this.butRegresar = new System.Windows.Forms.Button();
@@ -44,6 +45,9 @@
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.butInicio = new System.Windows.Forms.Button();
+            this.butPausa = new System.Windows.Forms.Button();
+            this.timerBuses = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // splitter1
@@ -86,9 +90,9 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(747, 426);
+            this.butRegresar.Location = new System.Drawing.Point(762, 448);
             this.butRegresar.Name = "butRegresar";
-            this.butRegresar.Size = new System.Drawing.Size(121, 55);
+            this.butRegresar.Size = new System.Drawing.Size(85, 34);
             this.butRegresar.TabIndex = 2;
             this.butRegresar.Text = "Regresar";
             this.butRegresar.UseVisualStyleBackColor = true;
@@ -140,9 +144,9 @@
             // butGraficar
             // 
             this.butGraficar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butGraficar.Location = new System.Drawing.Point(747, 304);
+            this.butGraficar.Location = new System.Drawing.Point(762, 340);
             this.butGraficar.Name = "butGraficar";
-            this.butGraficar.Size = new System.Drawing.Size(121, 55);
+            this.butGraficar.Size = new System.Drawing.Size(85, 34);
             this.butGraficar.TabIndex = 7;
             this.butGraficar.Text = "Graficar";
             this.butGraficar.UseVisualStyleBackColor = true;
@@ -151,9 +155,9 @@
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(747, 365);
+            this.butEliminar.Location = new System.Drawing.Point(762, 396);
             this.butEliminar.Name = "butEliminar";
-            this.butEliminar.Size = new System.Drawing.Size(121, 55);
+            this.butEliminar.Size = new System.Drawing.Size(85, 34);
             this.butEliminar.TabIndex = 8;
             this.butEliminar.Text = "Eliminar Marcadores";
             this.butEliminar.UseVisualStyleBackColor = true;
@@ -238,11 +242,38 @@
             this.checkBox7.Text = "Zona Cañaveralejo";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
+            // butInicio
+            // 
+            this.butInicio.Location = new System.Drawing.Point(717, 297);
+            this.butInicio.Name = "butInicio";
+            this.butInicio.Size = new System.Drawing.Size(75, 23);
+            this.butInicio.TabIndex = 16;
+            this.butInicio.Text = "Inicio";
+            this.butInicio.UseVisualStyleBackColor = true;
+            this.butInicio.Click += new System.EventHandler(this.ButInicio_Click);
+            // 
+            // butPausa
+            // 
+            this.butPausa.Location = new System.Drawing.Point(814, 297);
+            this.butPausa.Name = "butPausa";
+            this.butPausa.Size = new System.Drawing.Size(75, 23);
+            this.butPausa.TabIndex = 17;
+            this.butPausa.Text = "Pausa";
+            this.butPausa.UseVisualStyleBackColor = true;
+            this.butPausa.Click += new System.EventHandler(this.ButPausa_Click);
+            // 
+            // timerBuses
+            // 
+            this.timerBuses.Interval = 1000;
+            this.timerBuses.Tick += new System.EventHandler(this.TimerBuses_Tick);
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 504);
+            this.Controls.Add(this.butPausa);
+            this.Controls.Add(this.butInicio);
             this.Controls.Add(this.checkBox7);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
@@ -284,5 +315,8 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.Button butInicio;
+        private System.Windows.Forms.Button butPausa;
+        private System.Windows.Forms.Timer timerBuses;
     }
 }
