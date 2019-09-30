@@ -52,7 +52,7 @@ namespace MetroCaliSimulator
         public void dataRead()
         {
             StreamReader read;
-            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\archivos metrocali\stops.csv");
+            read = new StreamReader("archivosmetrocali/stops.csv");
             String line = "";
             while (!read.EndOfStream)
             {
@@ -64,7 +64,7 @@ namespace MetroCaliSimulator
                 Console.WriteLine("{0}", newStop.stopid);
             }
 
-            read = new StreamReader(@"C:\Users\ANDREA CAICEDO\Desktop\archivos metrocali\stopsStations.csv");
+            read = new StreamReader(@"archivosmetrocali/stopsStations.csv");
             line = "";
             while (!read.EndOfStream)
             {
