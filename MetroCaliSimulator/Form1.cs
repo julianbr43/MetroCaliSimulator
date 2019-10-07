@@ -24,7 +24,6 @@ namespace MetroCaliSimulator
             theMio = new MioSystem();
             //dataRead();
             deserializar();
-            //busSimulationRead();
             //dataReadBus();
         }
 
@@ -76,15 +75,8 @@ namespace MetroCaliSimulator
                 Console.WriteLine("{0}", newStop.stopid);
             }
 
-
-            serializar();
-        }
-
-        private void busSimulationRead()
-        {
-            StreamReader read;
-            read = new StreamReader(@"C:\Users\Juan Puerta\Documents\LosDaticosPuntoDatos.xlsx");
-            String line = "";
+            read = new StreamReader(@"C:\Users\1005976041\Desktop\DATAGRAMS1.csv");
+            line = "";
             while (!read.EndOfStream)
             {
                 line = read.ReadLine();
@@ -97,8 +89,11 @@ namespace MetroCaliSimulator
                     //infoBus = line.Split(';');
                     date = infoBus[0];
                     dateCompare = infoBus[0];
-                    Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
-                    theListBus.Add(theBus);
+                    if ( !(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
+                    {
+                        Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
+                        theListBus.Add(theBus);
+                    }
                     line = read.ReadLine();
                     if (line == null || line.Equals(""))
                     {
@@ -110,7 +105,9 @@ namespace MetroCaliSimulator
                 }
                 theMio.theBusTime.Enqueue(theListBus);
             }
-            //serializar();
+
+
+            serializar();
         }
 
 

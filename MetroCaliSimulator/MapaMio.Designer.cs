@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
-            this.butGraficar = new System.Windows.Forms.Button();
             this.butEliminar = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -48,6 +47,7 @@
             this.butInicio = new System.Windows.Forms.Button();
             this.butPausa = new System.Windows.Forms.Button();
             this.timerBuses = new System.Windows.Forms.Timer(this.components);
+            this.labelTiempo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // splitter1
@@ -90,7 +90,7 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(762, 448);
+            this.butRegresar.Location = new System.Drawing.Point(762, 393);
             this.butRegresar.Name = "butRegresar";
             this.butRegresar.Size = new System.Drawing.Size(85, 34);
             this.butRegresar.TabIndex = 2;
@@ -141,21 +141,10 @@
             this.textBoxBuscar.Size = new System.Drawing.Size(121, 20);
             this.textBoxBuscar.TabIndex = 6;
             // 
-            // butGraficar
-            // 
-            this.butGraficar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butGraficar.Location = new System.Drawing.Point(762, 340);
-            this.butGraficar.Name = "butGraficar";
-            this.butGraficar.Size = new System.Drawing.Size(85, 34);
-            this.butGraficar.TabIndex = 7;
-            this.butGraficar.Text = "Graficar";
-            this.butGraficar.UseVisualStyleBackColor = true;
-            this.butGraficar.Click += new System.EventHandler(this.ButGraficar_Click);
-            // 
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(762, 396);
+            this.butEliminar.Location = new System.Drawing.Point(762, 342);
             this.butEliminar.Name = "butEliminar";
             this.butEliminar.Size = new System.Drawing.Size(85, 34);
             this.butEliminar.TabIndex = 8;
@@ -174,7 +163,7 @@
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "Zona Centro";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -186,6 +175,7 @@
             this.checkBox2.TabIndex = 10;
             this.checkBox2.Text = "Zona Universidades";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -197,6 +187,7 @@
             this.checkBox3.TabIndex = 11;
             this.checkBox3.Text = "Zona Menga";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -208,6 +199,7 @@
             this.checkBox4.TabIndex = 12;
             this.checkBox4.Text = "Zona Chiminangos";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox5
             // 
@@ -219,6 +211,7 @@
             this.checkBox5.TabIndex = 13;
             this.checkBox5.Text = "Zona Andres Sanin";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -230,6 +223,7 @@
             this.checkBox6.TabIndex = 14;
             this.checkBox6.Text = "Zona Aguablanca";
             this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox7
             // 
@@ -241,6 +235,7 @@
             this.checkBox7.TabIndex = 15;
             this.checkBox7.Text = "Zona Cañaveralejo";
             this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // butInicio
             // 
@@ -269,11 +264,23 @@
             this.timerBuses.Interval = 1000;
             this.timerBuses.Tick += new System.EventHandler(this.TimerBuses_Tick);
             // 
+            // labelTiempo
+            // 
+            this.labelTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTiempo.AutoSize = true;
+            this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTiempo.Location = new System.Drawing.Point(768, 440);
+            this.labelTiempo.Name = "labelTiempo";
+            this.labelTiempo.Size = new System.Drawing.Size(66, 25);
+            this.labelTiempo.TabIndex = 18;
+            this.labelTiempo.Text = "00:00";
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 504);
+            this.Controls.Add(this.labelTiempo);
             this.Controls.Add(this.butPausa);
             this.Controls.Add(this.butInicio);
             this.Controls.Add(this.checkBox7);
@@ -284,7 +291,6 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.butEliminar);
-            this.Controls.Add(this.butGraficar);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -308,7 +314,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxBuscar;
-        private System.Windows.Forms.Button butGraficar;
         private System.Windows.Forms.Button butEliminar;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -320,5 +325,6 @@
         private System.Windows.Forms.Button butInicio;
         private System.Windows.Forms.Button butPausa;
         private System.Windows.Forms.Timer timerBuses;
+        private System.Windows.Forms.Label labelTiempo;
     }
 }

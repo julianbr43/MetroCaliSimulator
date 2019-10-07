@@ -53,7 +53,6 @@ namespace MetroCaliSimulator.model
 
         public int isZone(double altitud, double longitud)
         {
-            Console.WriteLine("f" + zonas.Count);
             int pos = -1;
             for (int i = 0; i < zonas.Count; i++)
             {

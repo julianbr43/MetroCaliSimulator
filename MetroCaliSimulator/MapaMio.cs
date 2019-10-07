@@ -22,6 +22,7 @@ namespace MetroCaliSimulator
         {
             InitializeComponent();
             laVentana = v;
+            //cargarMapa();
         }
         private void ButRegresar_Click(object sender, EventArgs e)
         {
@@ -40,7 +41,7 @@ namespace MetroCaliSimulator
             gMapMapaMio.Zoom = 13;
         }
 
-        private void ButGraficar_Click(object sender, EventArgs e)
+        private void drawStops()
         {
             if (textBoxBuscar.Text.Equals(""))
             {
@@ -66,7 +67,7 @@ namespace MetroCaliSimulator
 
         private void stationsMarket(Stop theStop) {
             PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
-            GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.blue_dot);
+            GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("Images/TransportIcon.png"));
 
             addLabelPoint(theMarker, theStop);
 
@@ -77,7 +78,7 @@ namespace MetroCaliSimulator
 
         private void streetsMarket(Stop theStop) {
             PointLatLng point = new PointLatLng(theStop.decLat, theStop.decLong);
-            GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.red_dot);
+            GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("Images/stopBusIcon.png"));
 
             addLabelPoint(theMarker, theStop);
 
@@ -283,13 +284,13 @@ namespace MetroCaliSimulator
 
 
         private void refreshMap() {
-            gMapMapaMio.Zoom++;
-            gMapMapaMio.Zoom--;
+            gMapMapaMio.Zoom = gMapMapaMio.Zoom + 0.001;
+            gMapMapaMio.Zoom = gMapMapaMio.Zoom - 0.001;
         }
 
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            drawStops();
         }
 
         private void ComboFiltrar_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,21 +302,42 @@ namespace MetroCaliSimulator
         {
             removeMarkers();
             List<Bus> theDefinitiveList = laVentana.theMio.theBusTime.Dequeue();
-            Console.WriteLine("{0}", theDefinitiveList.First().dataGramDate);
+            labelTiempo.Text = theDefinitiveList[1].dataGramDate;
+            //Console.WriteLine("{0}", theDefinitiveList.First().dataGramDate);
             int n = theDefinitiveList.Count();
 
             for (int i = 0; i < n; i++)
             {
                 //Console.WriteLine("{0}, {1}, {2}", theDefinitiveList[i].dataGramDate, i, n);
-                PointLatLng point = new PointLatLng(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude);
-                GMapMarker theMarker = new GMarkerGoogle(point, GMarkerGoogleType.blue_dot);
+                verificarZone(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId);
+            }
+            refreshMap();
+        }
 
+        private void busShow(double lat, double longi, int zone, int busId)
+        {
+            if (laVentana.theMio.isZone(lat, longi) == zone)
+            {
+                PointLatLng point = new PointLatLng(lat, longi);
+                GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("Images/img4.png"));
+                addLabelPointBus(theMarker, busId);
 
                 GMapOverlay markers = new GMapOverlay("markers");
                 markers.Markers.Add(theMarker);
                 gMapMapaMio.Overlays.Add(markers);
+
             }
-            refreshMap();
+        }
+
+        private void addLabelPointBus(GMapMarker theMarker, int busId)
+        {
+            theMarker.ToolTipText = $"ID: {busId}";
+
+            GMapToolTip theTip = new GMapToolTip(theMarker);
+            theTip.Fill = new SolidBrush(Color.Gray);
+            theTip.Foreground = new SolidBrush(Color.Black);
+
+            theMarker.ToolTip = theTip;
         }
 
         private void ButInicio_Click(object sender, EventArgs e)
@@ -334,6 +356,41 @@ namespace MetroCaliSimulator
         private void ButPausa_Click(object sender, EventArgs e)
         {
             timerBuses.Stop();
+        }
+
+        private void verificarZone(double lat, double longi, int busId)
+        {
+            if (checkBox1.Checked == true)
+            {
+               busShow(lat, longi, 0, busId);
+            }
+            if (checkBox2.Checked == true)
+            {
+                busShow(lat, longi, 1, busId);
+            }
+            if (checkBox3.Checked == true)
+            {
+                busShow(lat, longi, 2, busId);
+            }
+            if (checkBox4.Checked == true)
+            {
+                busShow(lat, longi, 3, busId);
+            }
+            if (checkBox5.Checked == true)
+            {
+                busShow(lat, longi, 4, busId);
+
+            }
+            if (checkBox6.Checked == true)
+            {
+                busShow(lat, longi, 5, busId);
+
+            }
+            if (checkBox7.Checked == true)
+            {
+                busShow(lat, longi, 6, busId);
+
+            }
         }
     }
 }
