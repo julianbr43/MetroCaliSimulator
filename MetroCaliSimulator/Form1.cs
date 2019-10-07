@@ -24,9 +24,10 @@ namespace MetroCaliSimulator
             theMio = new MioSystem();
             //dataRead();
             deserializar();
-            //dataReadBus();
+            dataReadBus();
         }
 
+        
         private void ButVerMapa_Click(object sender, EventArgs e)
         {
             elMapaMio.Show();
@@ -75,8 +76,15 @@ namespace MetroCaliSimulator
                 Console.WriteLine("{0}", newStop.stopid);
             }
 
-            read = new StreamReader(@"C:\Users\1005976041\Desktop\DATAGRAMS1.csv");
-            line = "";
+
+            serializar();
+        }
+
+        private void dataReadBus()
+        {
+
+            StreamReader read = new StreamReader(@"C:\Users\1005976041\Desktop\DATAGRAMS1.csv");
+            String line = "";
             while (!read.EndOfStream)
             {
                 line = read.ReadLine();
@@ -89,7 +97,7 @@ namespace MetroCaliSimulator
                     //infoBus = line.Split(';');
                     date = infoBus[0];
                     dateCompare = infoBus[0];
-                    if ( !(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
+                    if (!(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
                     {
                         Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
                         theListBus.Add(theBus);
@@ -106,9 +114,8 @@ namespace MetroCaliSimulator
                 theMio.theBusTime.Enqueue(theListBus);
             }
 
-
-            serializar();
         }
+
 
 
     }

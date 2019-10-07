@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MetroCaliSimulator.model
 {
-     [Serializable]
      public class Bus
     {
        
