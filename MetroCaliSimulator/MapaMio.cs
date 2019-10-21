@@ -298,29 +298,51 @@ namespace MetroCaliSimulator
 
         }
 
-        private void drawBus()
+        private void drawBus(string draw)
         {
             removeMarkers();
             List<Bus> theDefinitiveList = laVentana.theMio.theBusTime.Dequeue();
-            labelTiempo.Text = theDefinitiveList[1].dataGramDate;
-            //Console.WriteLine("{0}", theDefinitiveList.First().dataGramDate);
+            labelTiempo.Text = theDefinitiveList[0].dataGramDate;
             int n = theDefinitiveList.Count();
-
-            for (int i = 0; i < n; i++)
-            {
-                //Console.WriteLine("{0}, {1}, {2}", theDefinitiveList[i].dataGramDate, i, n);
-                verificarZone(theDefinitiveList[i].latitude, theDefinitiveList[i].longitude, theDefinitiveList[i].busId);
+            
+            if (!draw.Equals("") && !draw.Equals("TODAS")) {
+                
+                //try
+                //{ 
+                    for (int i = 0; i < n; i++)
+                    {
+                        Line theLine = ((Line)(laVentana.theMio.lineInfo[theDefinitiveList[i].lineId]));
+                        if (theLine != null) {
+                        Console.WriteLine("{0}, {1}", theLine.shortName, draw);
+                            if (theLine.shortName.Equals(draw)) {
+                                verificarZone(theDefinitiveList[i]);
+                            }
+                        }
+                    }
+                refreshMap();
+                Console.WriteLine("Caca");
+                //}
+                //catch (Exception e) { }
             }
-            refreshMap();
+    
+            else {
+                for (int i = 0; i < n; i++)
+                {
+                    verificarZone(theDefinitiveList[i]);
+                    
+                }
+                refreshMap();
+            }
+            
         }
 
-        private void busShow(double lat, double longi, int zone, int busId)
+        private void busShow(double lat, double longi, int zone, int busId, int lineId)
         {
             if (laVentana.theMio.isZone(lat, longi) == zone)
             {
                 PointLatLng point = new PointLatLng(lat, longi);
                 GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("Images/img4.png"));
-                addLabelPointBus(theMarker, busId);
+                addLabelPointBus(theMarker, busId, lineId);
 
                 GMapOverlay markers = new GMapOverlay("markers");
                 markers.Markers.Add(theMarker);
@@ -329,10 +351,16 @@ namespace MetroCaliSimulator
             }
         }
 
-        private void addLabelPointBus(GMapMarker theMarker, int busId)
+        private void addLabelPointBus(GMapMarker theMarker, int busId, int lineId)
         {
-            theMarker.ToolTipText = $"ID: {busId}";
-
+            Line ruta = ((Line)(laVentana.theMio.lineInfo[lineId]));
+            if (ruta != null)
+            {
+                theMarker.ToolTipText = $"ID: {busId}, \nRuta: {ruta.shortName}, \nDesc: {ruta.description}";
+            }
+            else {
+                theMarker.ToolTipText = $"ID: {busId}";
+            }
             GMapToolTip theTip = new GMapToolTip(theMarker);
             theTip.Fill = new SolidBrush(Color.Gray);
             theTip.Foreground = new SolidBrush(Color.Black);
@@ -350,7 +378,8 @@ namespace MetroCaliSimulator
 
         private void TimerBuses_Tick(object sender, EventArgs e)
         {
-            drawBus();
+            string draw = comboRutas.Text;
+            drawBus(draw);
         }
 
         private void ButPausa_Click(object sender, EventArgs e)
@@ -358,39 +387,44 @@ namespace MetroCaliSimulator
             timerBuses.Stop();
         }
 
-        private void verificarZone(double lat, double longi, int busId)
+        private void verificarZone(Bus theBus)
         {
             if (checkBox1.Checked == true)
             {
-               busShow(lat, longi, 0, busId);
+               busShow(theBus.latitude, theBus.longitude, 0, theBus.busId, theBus.lineId);
             }
             if (checkBox2.Checked == true)
             {
-                busShow(lat, longi, 1, busId);
+                busShow(theBus.latitude, theBus.longitude, 1, theBus.busId, theBus.lineId);
             }
             if (checkBox3.Checked == true)
             {
-                busShow(lat, longi, 2, busId);
+                busShow(theBus.latitude, theBus.longitude, 2, theBus.busId, theBus.lineId);
             }
             if (checkBox4.Checked == true)
             {
-                busShow(lat, longi, 3, busId);
+                busShow(theBus.latitude, theBus.longitude, 3, theBus.busId, theBus.lineId);
             }
             if (checkBox5.Checked == true)
             {
-                busShow(lat, longi, 4, busId);
+                busShow(theBus.latitude, theBus.longitude, 4, theBus.busId, theBus.lineId);
 
             }
             if (checkBox6.Checked == true)
             {
-                busShow(lat, longi, 5, busId);
+                busShow(theBus.latitude, theBus.longitude, 5, theBus.busId, theBus.lineId);
 
             }
             if (checkBox7.Checked == true)
             {
-                busShow(lat, longi, 6, busId);
+                busShow(theBus.latitude, theBus.longitude, 6, theBus.busId, theBus.lineId);
 
             }
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

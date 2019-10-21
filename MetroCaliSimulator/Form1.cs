@@ -22,8 +22,9 @@ namespace MetroCaliSimulator
             InitializeComponent();
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
-            //dataRead();
-            deserializar();
+            dataRead();
+
+            //deserializar();
             dataReadBus();
         }
 
@@ -61,7 +62,7 @@ namespace MetroCaliSimulator
                 Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
                 theMio.stopStreets.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
-                Console.WriteLine("{0}", newStop.stopid);
+                //Console.WriteLine("{0}", newStop.stopid);
             }
 
             read = new StreamReader(@"archivosmetrocali/stopsStations.csv");
@@ -73,17 +74,29 @@ namespace MetroCaliSimulator
                 Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
                 theMio.stopStations.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
-                Console.WriteLine("{0}", newStop.stopid);
+                //Console.WriteLine("{0}", newStop.stopid);
             }
 
+            read = new StreamReader(@"archivosmetrocali/linesDef.csv");
+            line = "";
+            while (!read.EndOfStream)
+            {
+                line = read.ReadLine();
+                String[] infoLine = line.Split(';');
+                Line theLine = new Line(int.Parse(infoLine[0]), int.Parse(infoLine[1]), infoLine[2], infoLine[3]);
+                theMio.lineInfo.Add(theLine.lineId, theLine);
+                //Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                //theMio.stopStations.Add(newStop);
+                //theMio.theStop.Add(newStop.stopid, newStop);
+                //nsole.WriteLine("{0}", newStop.stopid);
+            }
 
             serializar();
         }
 
         private void dataReadBus()
         {
-
-            StreamReader read = new StreamReader(@"C:\Users\1005976041\Desktop\DATAGRAMS1.csv");
+            StreamReader read = new StreamReader(@"D:\DataModi\DATAMODI.csv");
             String line = "";
             while (!read.EndOfStream)
             {
@@ -91,6 +104,7 @@ namespace MetroCaliSimulator
                 String date = "";
                 String dateCompare = "";
                 List<Bus> theListBus = new List<Bus>();
+                List<int> busId = new List<int>();
                 String[] infoBus = line.Split(';');
                 while (date.Equals(dateCompare))
                 {
@@ -100,7 +114,11 @@ namespace MetroCaliSimulator
                     if (!(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
                     {
                         Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
-                        theListBus.Add(theBus);
+                        int numId = int.Parse(infoBus[9]);
+                        if (!busId.Contains(numId)) {
+                            theListBus.Add(theBus);
+                            busId.Add(numId);
+                        }
                     }
                     line = read.ReadLine();
                     if (line == null || line.Equals(""))
@@ -108,7 +126,7 @@ namespace MetroCaliSimulator
                         line = "-1;-1;-1;-1;-1;-1;-1;-1;-1;-1";
                     }
                     infoBus = line.Split(';');
-                    Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
+                    //Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
                     dateCompare = infoBus[0];
                 }
                 theMio.theBusTime.Enqueue(theListBus);
