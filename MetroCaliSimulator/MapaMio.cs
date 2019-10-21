@@ -50,7 +50,7 @@ namespace MetroCaliSimulator
                 {
                     loadStops(1);
                 }
-                else if (comboFiltrar.Text.Equals("Troncales"))
+                else if (comboFiltrar.Text.Equals("Calles"))
                 {
                     loadStops(2);
                 }
@@ -362,8 +362,8 @@ namespace MetroCaliSimulator
                 theMarker.ToolTipText = $"ID: {busId}";
             }
             GMapToolTip theTip = new GMapToolTip(theMarker);
-            theTip.Fill = new SolidBrush(Color.Gray);
-            theTip.Foreground = new SolidBrush(Color.Black);
+            theTip.Fill = new SolidBrush(Color.White);
+            theTip.Foreground = new SolidBrush(Color.Blue);
 
             theMarker.ToolTip = theTip;
         }
@@ -423,6 +423,21 @@ namespace MetroCaliSimulator
         }
 
         private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelTiempo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MapaMio_Load(object sender, EventArgs e)
         {
 
         }

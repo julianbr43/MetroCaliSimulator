@@ -96,7 +96,7 @@ namespace MetroCaliSimulator
 
         private void dataReadBus()
         {
-            StreamReader read = new StreamReader(@"D:\DataModi\DATAMODI.csv");
+            StreamReader read = new StreamReader(@"E:\DataModi\DATAMODI.csv");
             String line = "";
             while (!read.EndOfStream)
             {
@@ -134,7 +134,9 @@ namespace MetroCaliSimulator
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
