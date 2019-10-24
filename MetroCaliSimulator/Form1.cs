@@ -96,7 +96,7 @@ namespace MetroCaliSimulator
 
         private void dataReadBus()
         {
-            StreamReader read = new StreamReader(@"E:\DataModi\DATAMODI.csv");
+            StreamReader read = new StreamReader(@"D:\datoschambon1.csv");
             String line = "";
             while (!read.EndOfStream)
             {

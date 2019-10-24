@@ -93,7 +93,7 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(872, 453);
+            this.butRegresar.Location = new System.Drawing.Point(860, 452);
             this.butRegresar.Name = "butRegresar";
             this.butRegresar.Size = new System.Drawing.Size(85, 34);
             this.butRegresar.TabIndex = 2;
@@ -110,7 +110,7 @@
             "Estaciones",
             "Calles",
             "Todas"});
-            this.comboFiltrar.Location = new System.Drawing.Point(857, 28);
+            this.comboFiltrar.Location = new System.Drawing.Point(845, 27);
             this.comboFiltrar.Name = "comboFiltrar";
             this.comboFiltrar.Size = new System.Drawing.Size(121, 21);
             this.comboFiltrar.TabIndex = 3;
@@ -120,7 +120,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(836, 12);
+            this.label1.Location = new System.Drawing.Point(824, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 4;
@@ -130,7 +130,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(836, 63);
+            this.label2.Location = new System.Drawing.Point(824, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 5;
@@ -139,7 +139,7 @@
             // textBoxBuscar
             // 
             this.textBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBuscar.Location = new System.Drawing.Point(857, 79);
+            this.textBoxBuscar.Location = new System.Drawing.Point(845, 78);
             this.textBoxBuscar.Name = "textBoxBuscar";
             this.textBoxBuscar.Size = new System.Drawing.Size(121, 20);
             this.textBoxBuscar.TabIndex = 6;
@@ -147,7 +147,7 @@
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(872, 402);
+            this.butEliminar.Location = new System.Drawing.Point(860, 401);
             this.butEliminar.Name = "butEliminar";
             this.butEliminar.Size = new System.Drawing.Size(85, 34);
             this.butEliminar.TabIndex = 8;
@@ -160,7 +160,7 @@
             this.checkBox1.AccessibleName = "";
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(857, 180);
+            this.checkBox1.Location = new System.Drawing.Point(845, 179);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(85, 17);
             this.checkBox1.TabIndex = 9;
@@ -172,7 +172,7 @@
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(857, 203);
+            this.checkBox2.Location = new System.Drawing.Point(845, 202);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(121, 17);
             this.checkBox2.TabIndex = 10;
@@ -184,7 +184,7 @@
             // 
             this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(857, 226);
+            this.checkBox3.Location = new System.Drawing.Point(845, 225);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(87, 17);
             this.checkBox3.TabIndex = 11;
@@ -196,7 +196,7 @@
             // 
             this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(857, 249);
+            this.checkBox4.Location = new System.Drawing.Point(845, 248);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(114, 17);
             this.checkBox4.TabIndex = 12;
@@ -208,7 +208,7 @@
             // 
             this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(857, 272);
+            this.checkBox5.Location = new System.Drawing.Point(845, 271);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(117, 17);
             this.checkBox5.TabIndex = 13;
@@ -220,7 +220,7 @@
             // 
             this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(857, 295);
+            this.checkBox6.Location = new System.Drawing.Point(845, 294);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(111, 17);
             this.checkBox6.TabIndex = 14;
@@ -232,7 +232,7 @@
             // 
             this.checkBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(857, 318);
+            this.checkBox7.Location = new System.Drawing.Point(845, 317);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(116, 17);
             this.checkBox7.TabIndex = 15;
@@ -243,7 +243,7 @@
             // butInicio
             // 
             this.butInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butInicio.Location = new System.Drawing.Point(827, 357);
+            this.butInicio.Location = new System.Drawing.Point(815, 356);
             this.butInicio.Name = "butInicio";
             this.butInicio.Size = new System.Drawing.Size(75, 23);
             this.butInicio.TabIndex = 16;
@@ -254,7 +254,7 @@
             // butPausa
             // 
             this.butPausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butPausa.Location = new System.Drawing.Point(924, 357);
+            this.butPausa.Location = new System.Drawing.Point(912, 356);
             this.butPausa.Name = "butPausa";
             this.butPausa.Size = new System.Drawing.Size(75, 23);
             this.butPausa.TabIndex = 17;
@@ -410,7 +410,7 @@
             "U52",
             "U53",
             "TODAS"});
-            this.comboRutas.Location = new System.Drawing.Point(857, 133);
+            this.comboRutas.Location = new System.Drawing.Point(845, 132);
             this.comboRutas.Name = "comboRutas";
             this.comboRutas.Size = new System.Drawing.Size(121, 21);
             this.comboRutas.TabIndex = 19;
@@ -419,7 +419,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(836, 117);
+            this.label3.Location = new System.Drawing.Point(824, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 20;
