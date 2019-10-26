@@ -22,10 +22,10 @@ namespace MetroCaliSimulator
             InitializeComponent();
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
-            dataRead();
+            //dataRead();
 
-            //deserializar();
-            dataReadBus();
+            deserializar();
+            //dataReadBus();
         }
 
         
@@ -53,31 +53,31 @@ namespace MetroCaliSimulator
         public void dataRead()
         {
             StreamReader read;
-            read = new StreamReader("archivosmetrocali/stops.csv");
+            read = new StreamReader("archivos/stops.csv");
             String line = "";
             while (!read.EndOfStream)
             {
                 line = read.ReadLine();
                 String[] infoStop = line.Split(';');
-                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
                 theMio.stopStreets.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
                 //Console.WriteLine("{0}", newStop.stopid);
             }
 
-            read = new StreamReader(@"archivosmetrocali/stopsStations.csv");
+            read = new StreamReader(@"archivos/stops Stations.csv");
             line = "";
             while (!read.EndOfStream)
             {
                 line = read.ReadLine();
                 String[] infoStop = line.Split(';');
-                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
+                Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], double.Parse(infoStop[6]), double.Parse(infoStop[7]));
                 theMio.stopStations.Add(newStop);
                 theMio.theStop.Add(newStop.stopid, newStop);
                 //Console.WriteLine("{0}", newStop.stopid);
             }
 
-            read = new StreamReader(@"archivosmetrocali/linesDef.csv");
+            read = new StreamReader(@"archivos/linesDef.csv");
             line = "";
             while (!read.EndOfStream)
             {
