@@ -89,7 +89,8 @@ namespace MetroCaliSimulator
 
         private void ButEliminar_Click(object sender, EventArgs e)
         {
-            removeMarkers();
+            //removeMarkers();
+            polygonStation();
         }
 
         private void removeMarkers() {
@@ -165,6 +166,7 @@ namespace MetroCaliSimulator
 
         public void loadStops(int option)
         {
+            removeMarkers();
             if (checkBox1.Checked == true)
             {
                 if (option == 1)
@@ -290,6 +292,8 @@ namespace MetroCaliSimulator
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            CheckBox c = (CheckBox)sender;
+            String name = c.Name;
             drawStops();
         }
 
@@ -440,6 +444,69 @@ namespace MetroCaliSimulator
         private void MapaMio_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void polygonStation()
+        {
+            //Queue<List<Stop>> queue = new Queue<List<Stop>>();
+            int j;
+            for(int i = 0; i < laVentana.theMio.stopStations.Count; i++)
+            {
+                j = i;
+                String name = laVentana.theMio.stopStations[i].longName.Substring(0, laVentana.theMio.stopStations[i].longName.Length - 3);
+                String nameCompare = laVentana.theMio.stopStations[j+1].longName.Substring(0, laVentana.theMio.stopStations[j+1].longName.Length - 3);
+                List<Stop> theListStopStation = new List<Stop>();
+                theListStopStation.Add(laVentana.theMio.stopStations[i]);
+                
+                while (name.Trim().Equals(nameCompare.Trim()))
+                {
+                    
+                    j++;
+                    
+                    if (j < laVentana.theMio.stopStations.Count)
+                    {
+
+                        if((j+1) < laVentana.theMio.stopStations.Count) 
+                        {
+                            theListStopStation.Add(laVentana.theMio.stopStations[j]);
+                            nameCompare = laVentana.theMio.stopStations[j+1].longName.Substring(0, laVentana.theMio.stopStations[j+1].longName.Length - 3);
+                        } else
+                        {
+                            nameCompare = "";
+                        }
+                            
+                    } else
+                    {
+                        nameCompare = "";
+                    }
+                    
+                        // Console.WriteLine(name + ";");
+                        //Console.WriteLine(nameCompare + "; - " + j + " -- " + i);
+                }
+                polygonStation(theListStopStation);
+                //queue.Enqueue(theListStopStation);
+                i = j;
+            }
+
+            
+        }
+
+        private void polygonStation(List<Stop> list)
+        {
+            GMapOverlay Poligono = new GMapOverlay("POligono");
+            List<PointLatLng> puntos = new List<PointLatLng>();
+            double lat, longi;
+            //String name = "";
+            for(int i = 0; i < list.Count; i++)
+            {
+                lat = list[i].decLat;
+                longi = list[i].decLong;
+                puntos.Add(new PointLatLng(lat, longi));
+            }
+            GMapPolygon polygonPoint = new GMapPolygon(puntos, "Poligono");
+            Poligono.Polygons.Add(polygonPoint);
+            gMapMapaMio.Overlays.Add(Poligono);
+            refreshMap();
         }
     }
 }

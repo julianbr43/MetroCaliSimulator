@@ -13,6 +13,7 @@ namespace MetroCaliSimulator.model
     {
         public List<Zona> zonas { get; set; }
         public Queue<List<Bus>> theBusTime { get; set; }
+        //public Queue<List<Stop>> stopStations { get; set; }
         public List<Stop> stopStations { get; set; }
         public List<Stop> stopStreets { get; set; }
         public Hashtable theStop { get; set; }
@@ -22,6 +23,7 @@ namespace MetroCaliSimulator.model
         {
             this.theStop = new Hashtable();
             this.stopStations = new List<Stop>();
+            //this.stopStations = new Queue<List<Stop>>();
             this.stopStreets = new List<Stop>();
             this.theBusTime = new Queue<List<Bus>>();
             this.zonas = new List<Zona>();
