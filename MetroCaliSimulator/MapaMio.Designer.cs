@@ -89,6 +89,7 @@
             this.gMapMapaMio.Size = new System.Drawing.Size(758, 574);
             this.gMapMapaMio.TabIndex = 1;
             this.gMapMapaMio.Zoom = 0D;
+            this.gMapMapaMio.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.MouseEventHandler);
             // 
             // butRegresar
             // 

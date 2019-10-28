@@ -18,10 +18,16 @@ namespace MetroCaliSimulator
     public partial class MapaMio : Form
     {
         public Form1 laVentana { get; set; }
+
+        private bool isVisible;
+
+        GMapOverlay Poligono;
         public MapaMio(Form1 v)
         {
             InitializeComponent();
             laVentana = v;
+            Poligono = new GMapOverlay("POligono");
+            isVisible = false;
             //cargarMapa();
         }
         private void ButRegresar_Click(object sender, EventArgs e)
@@ -89,8 +95,8 @@ namespace MetroCaliSimulator
 
         private void ButEliminar_Click(object sender, EventArgs e)
         {
-            //removeMarkers();
-            polygonStation();
+            removeMarkers();
+            
         }
 
         private void removeMarkers() {
@@ -292,14 +298,12 @@ namespace MetroCaliSimulator
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox c = (CheckBox)sender;
-            String name = c.Name;
             drawStops();
         }
 
         private void ComboFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            drawStops();
         }
 
         private void drawBus(string draw)
@@ -483,7 +487,7 @@ namespace MetroCaliSimulator
                         // Console.WriteLine(name + ";");
                         //Console.WriteLine(nameCompare + "; - " + j + " -- " + i);
                 }
-                polygonStation(theListStopStation);
+                polygonStation(convexHull(theListStopStation, theListStopStation.Count));
                 //queue.Enqueue(theListStopStation);
                 i = j;
             }
@@ -493,7 +497,7 @@ namespace MetroCaliSimulator
 
         private void polygonStation(List<Stop> list)
         {
-            GMapOverlay Poligono = new GMapOverlay("POligono");
+           // Poligono = new GMapOverlay();
             List<PointLatLng> puntos = new List<PointLatLng>();
             double lat, longi;
             //String name = "";
@@ -507,6 +511,70 @@ namespace MetroCaliSimulator
             Poligono.Polygons.Add(polygonPoint);
             gMapMapaMio.Overlays.Add(Poligono);
             refreshMap();
+        }
+
+        public int orientacion(Stop p, Stop q, Stop r)
+        {
+            double val = (q.decLat - p.decLat) * (r.decLong - q.decLong) - (q.decLong - p.decLong) * (r.decLat- q.decLat);
+
+            if (val == 0)
+            {
+                return 0;
+            }
+
+            return (val > 0) ? 1 : 2;
+        }
+
+        public List<Stop> convexHull(List<Stop> lista, int n)
+        {
+            //if (n < 3) return;
+
+            List<Stop> hull = new List<Stop>();
+            int l = 0;
+
+            for (int i = 1; i < n; i++)
+            {
+                if (lista[i].decLong < lista[l].decLong)
+                {
+                    l = i;
+                }
+            }
+
+            int p = l, q;
+
+            do
+            {
+                hull.Add(lista[p]);
+
+                q = (p + 1) % n;
+
+                for (int i = 0; i < n; i++)
+                {
+
+                    if (orientacion(lista[p], lista[i], lista[q]) == 2)
+                        q = i;
+                }
+                p = q;
+            } while (p != l);
+
+            //lista = hull;
+            return hull;
+        }
+
+        private void MouseEventHandler()
+        {
+            String zoomTo = gMapMapaMio.Zoom.ToString();
+            int zoom = int.Parse(zoomTo);
+            if(zoom >= 18 && !isVisible)
+            {
+                polygonStation();
+                isVisible = true;
+            } else if(zoom < 18)
+            {
+                Poligono.Clear();
+                isVisible = false;
+                refreshMap();
+            }
         }
     }
 }
