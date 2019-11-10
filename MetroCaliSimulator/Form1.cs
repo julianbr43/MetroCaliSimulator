@@ -83,53 +83,9 @@ namespace MetroCaliSimulator
                 String[] infoLine = line.Split(';');
                 Line theLine = new Line(int.Parse(infoLine[0]), int.Parse(infoLine[1]), infoLine[2], infoLine[3]);
                 theMio.lineInfo.Add(theLine.lineId, theLine);
-                //Stop newStop = new Stop(infoStop[0], int.Parse(infoStop[1]), infoStop[2], infoStop[3], int.Parse(infoStop[4]), int.Parse(infoStop[5]), double.Parse(infoStop[6]), double.Parse(infoStop[7]));
-                //theMio.stopStations.Add(newStop);
-                //theMio.theStop.Add(newStop.stopid, newStop);
-                //nsole.WriteLine("{0}", newStop.stopid);
             }
 
             serializar();
-        }
-
-        private List<Bus> dataReadBus(int time, Bus last)
-        {
-            StreamReader read = new StreamReader("DATAGRAMS.csv");
-            String line = "";
-            bool completed = false;
-            List<Bus> theListBus = new List<Bus>();
-            while (!completed)
-            {
-                line = read.ReadLine();
-                String hour = "";
-                String hourCompare = "";
-                List<int> busId = new List<int>();
-                String[] infoBus = line.Split(';');
-                while (hour.Equals(hourCompare))
-                {
-                    hour = infoBus[0];
-                    hourCompare = infoBus[0];
-                    if (!(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
-                    {
-                        Bus theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
-                        int numId = int.Parse(infoBus[10]);
-                        if (!busId.Contains(numId)) {
-                            theListBus.Add(theBus);
-                            busId.Add(numId);
-                        }
-                    }
-                    line = read.ReadLine();
-                    if (line == null || line.Equals(""))
-                    {
-                        line = "-1;-1;-1;-1;-1;-1;-1;-1;-1;-1";
-                    }
-                    infoBus = line.Split(';');
-                    //Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
-                    hourCompare = infoBus[0];
-                }
-            }
-            return theListBus;
-
         }
 
         public List<Bus> showBus(int time, Bus last)

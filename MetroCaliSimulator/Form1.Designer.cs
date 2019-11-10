@@ -33,7 +33,7 @@
             // 
             // butVerMapa
             // 
-            this.butVerMapa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.butVerMapa.BackColor = System.Drawing.SystemColors.Control;
             this.butVerMapa.Location = new System.Drawing.Point(130, 97);
             this.butVerMapa.Name = "butVerMapa";
             this.butVerMapa.Size = new System.Drawing.Size(113, 66);
@@ -46,6 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(377, 286);
             this.Controls.Add(this.butVerMapa);
             this.Name = "Form1";

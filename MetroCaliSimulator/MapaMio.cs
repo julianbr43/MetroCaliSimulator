@@ -388,25 +388,30 @@ namespace MetroCaliSimulator
 
         private void TimerBuses_Tick(object sender, EventArgs e)
         {
-            if (!buses.Any())
+            if(!tiempo.Equals(""))
             {
-                buses = laVentana.showBus(int.Parse(tiempo.Text), null);
-            } else
-            {
-                Bus busLast = buses.Last();
+                if (!buses.Any())
+                {
+                    buses = laVentana.showBus(int.Parse(tiempo.Text), null);
+                }
+                else
+                {
+                    Bus busLast = buses.Last();
 
-                buses.Clear();
+                    buses.Clear();
 
-                buses = laVentana.showBus(int.Parse(tiempo.Text), busLast);
-            }
-            
-            if(buses.Count > 0)
-            {
-                string draw = comboRutas.Text;
-                drawBus(draw);
-            } else
-            {
-                timerBuses.Stop();
+                    buses = laVentana.showBus(int.Parse(tiempo.Text), busLast);
+                }
+
+                if (buses.Count > 0)
+                {
+                    string draw = comboRutas.Text;
+                    drawBus(draw);
+                }
+                else
+                {
+                    timerBuses.Stop();
+                }
             }
             
         }
