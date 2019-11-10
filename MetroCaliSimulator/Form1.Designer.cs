@@ -33,12 +33,13 @@
             // 
             // butVerMapa
             // 
+            this.butVerMapa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butVerMapa.Location = new System.Drawing.Point(130, 97);
             this.butVerMapa.Name = "butVerMapa";
             this.butVerMapa.Size = new System.Drawing.Size(113, 66);
             this.butVerMapa.TabIndex = 0;
             this.butVerMapa.Text = "Ver Simulación";
-            this.butVerMapa.UseVisualStyleBackColor = true;
+            this.butVerMapa.UseVisualStyleBackColor = false;
             this.butVerMapa.Click += new System.EventHandler(this.ButVerMapa_Click);
             // 
             // Form1

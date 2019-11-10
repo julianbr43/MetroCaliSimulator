@@ -23,9 +23,7 @@ namespace MetroCaliSimulator
             elMapaMio = new MapaMio(this);
             theMio = new MioSystem();
             //dataRead();
-
             deserializar();
-            //dataReadBus();
         }
 
         
@@ -94,27 +92,27 @@ namespace MetroCaliSimulator
             serializar();
         }
 
-        private void dataReadBus()
+        private List<Bus> dataReadBus(int time, Bus last)
         {
-            StreamReader read = new StreamReader(@"D:\datoschambon1.csv");
+            StreamReader read = new StreamReader("DATAGRAMS.csv");
             String line = "";
-            while (!read.EndOfStream)
+            bool completed = false;
+            List<Bus> theListBus = new List<Bus>();
+            while (!completed)
             {
                 line = read.ReadLine();
-                String date = "";
-                String dateCompare = "";
-                List<Bus> theListBus = new List<Bus>();
+                String hour = "";
+                String hourCompare = "";
                 List<int> busId = new List<int>();
                 String[] infoBus = line.Split(';');
-                while (date.Equals(dateCompare))
+                while (hour.Equals(hourCompare))
                 {
-                    //infoBus = line.Split(';');
-                    date = infoBus[0];
-                    dateCompare = infoBus[0];
+                    hour = infoBus[0];
+                    hourCompare = infoBus[0];
                     if (!(double.Parse(infoBus[3]) == -1 || double.Parse(infoBus[4]) == -1))
                     {
-                        Bus theBus = new Bus(infoBus[0], int.Parse(infoBus[1]), int.Parse(infoBus[2]), double.Parse(infoBus[3]), double.Parse(infoBus[4]), int.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), long.Parse(infoBus[8]), int.Parse(infoBus[9]));
-                        int numId = int.Parse(infoBus[9]);
+                        Bus theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
+                        int numId = int.Parse(infoBus[10]);
                         if (!busId.Contains(numId)) {
                             theListBus.Add(theBus);
                             busId.Add(numId);
@@ -127,12 +125,162 @@ namespace MetroCaliSimulator
                     }
                     infoBus = line.Split(';');
                     //Console.WriteLine("{0}, {1}", infoBus[0], infoBus[9]);
-                    dateCompare = infoBus[0];
+                    hourCompare = infoBus[0];
                 }
-                theMio.theBusTime.Enqueue(theListBus);
             }
+            return theListBus;
 
         }
+
+        public List<Bus> showBus(int time, Bus last)
+        {
+            List<Bus> listTheBus = new List<Bus>();
+            StreamReader read = new StreamReader(@"archivos/DATAGRAMS.csv");
+            String line = "";
+            Bus principal = null;
+            String[] infoBus;
+            Bus theBus;
+            List<int> idBus = new List<int>();
+            bool encontrado = false;
+            if (last == null)
+            {
+                line = read.ReadLine();
+                infoBus = line.Split(';');
+                theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10])); ;
+                principal = theBus;
+            } else
+            {
+
+                line = read.ReadLine();
+                while (!encontrado && !read.EndOfStream)
+                {
+                    infoBus = line.Split(';');
+                    theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
+                    if (last.dataGramId == theBus.dataGramId)
+                    {
+                        encontrado = true;
+                        if((line = read.ReadLine()) != null)
+                        {
+                            infoBus = line.Split(';');
+                            theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
+                           
+                        }
+                        principal = theBus;
+                    } else
+                    {
+                        line = read.ReadLine();
+                        if (read.EndOfStream)
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+
+            String[] hourPrincipal = principal.hour.Split('.');
+            encontrado = false;
+            while(!encontrado && !read.EndOfStream)
+            {
+                if(horario(hourPrincipal))
+                {
+                    encontrado = true;
+                } else
+                {
+                    line = read.ReadLine();
+                    infoBus = line.Split(';');
+                    principal = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
+                    hourPrincipal = principal.hour.Split('.');
+                }
+            }
+            encontrado = false;
+            
+            while (!read.EndOfStream && !encontrado && ((line = read.ReadLine()) != null) )
+            {
+                
+                infoBus = line.Split(';');
+                theBus = new Bus(infoBus[0], infoBus[1], int.Parse(infoBus[2]), int.Parse(infoBus[3]), double.Parse(infoBus[4]), double.Parse(infoBus[5]), int.Parse(infoBus[6]), int.Parse(infoBus[7]), int.Parse(infoBus[8]), long.Parse(infoBus[9]), int.Parse(infoBus[10]));
+
+                if ( (theBus.latitude != -1 && theBus.longitude != -1))
+                {
+                    String[] hourCompare = theBus.hour.Split('.');
+                    bool isContain = timeCompare(hourPrincipal, hourCompare, time);
+                    if (isContain)
+                    {
+                        if (!idBus.Contains(theBus.busId))
+                        {
+                            idBus.Add(theBus.busId);
+                            listTheBus.Add(theBus);
+                        }
+                    }
+                    else
+                    {
+                        encontrado = true;
+                    }
+                }
+            }
+
+
+
+            return listTheBus;
+        }
+
+        private bool horario(String[] hour)
+        {
+            bool ok;
+            int h = int.Parse(hour[0]);
+            String t = hour[2].Substring(3, hour.Length-1);
+            if (t == "AM" && (h == 12 || h <= 5) )
+            {
+                ok = false;
+            } else
+            {
+                ok = true;
+            }
+            return ok;
+        }
+
+        private bool timeCompare(String[]hourPrincipal, String[] hourBuscado, int time)
+        {
+            bool mayor = false;
+            int secondP = int.Parse(hourPrincipal[2].Substring(0,2));
+            int secondB = int.Parse(hourBuscado[2].Substring(0, 2));
+            int mP = int.Parse(hourPrincipal[1]);
+            int mB = int.Parse(hourBuscado[1]);
+
+            int limited = time + secondP;
+
+            if(time != 60)
+            {
+                if (limited > 60)
+                {
+                    limited -= 60;
+                    if (secondB <= Math.Abs(limited) || secondB >= secondP)
+                    {
+                        mayor = true;
+                    }
+                }
+                else
+                {
+                    if (secondB >= secondP && secondB <= limited)
+                    {
+                        mayor = true;
+                    }
+                }
+            } else
+            {
+                if((secondB >= secondP && mB == mP) || (secondB <= secondP && mB == (mP+1)))
+                {
+                    mayor = true;
+                }
+            }
+
+            
+
+            return mayor;
+        }
+
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {

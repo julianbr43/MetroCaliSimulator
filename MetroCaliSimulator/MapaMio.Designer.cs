@@ -51,6 +51,8 @@
             this.comboRutas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.tiempo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // splitter1
@@ -94,7 +96,7 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(860, 452);
+            this.butRegresar.Location = new System.Drawing.Point(860, 442);
             this.butRegresar.Name = "butRegresar";
             this.butRegresar.Size = new System.Drawing.Size(85, 34);
             this.butRegresar.TabIndex = 2;
@@ -148,7 +150,7 @@
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(860, 401);
+            this.butEliminar.Location = new System.Drawing.Point(860, 391);
             this.butEliminar.Name = "butEliminar";
             this.butEliminar.Size = new System.Drawing.Size(85, 34);
             this.butEliminar.TabIndex = 8;
@@ -161,7 +163,7 @@
             this.checkBox1.AccessibleName = "";
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(845, 179);
+            this.checkBox1.Location = new System.Drawing.Point(845, 169);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(85, 17);
             this.checkBox1.TabIndex = 9;
@@ -173,7 +175,7 @@
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(845, 202);
+            this.checkBox2.Location = new System.Drawing.Point(845, 192);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(121, 17);
             this.checkBox2.TabIndex = 10;
@@ -185,7 +187,7 @@
             // 
             this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(845, 225);
+            this.checkBox3.Location = new System.Drawing.Point(845, 215);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(87, 17);
             this.checkBox3.TabIndex = 11;
@@ -197,7 +199,7 @@
             // 
             this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(845, 248);
+            this.checkBox4.Location = new System.Drawing.Point(845, 238);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(114, 17);
             this.checkBox4.TabIndex = 12;
@@ -209,7 +211,7 @@
             // 
             this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(845, 271);
+            this.checkBox5.Location = new System.Drawing.Point(845, 261);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(117, 17);
             this.checkBox5.TabIndex = 13;
@@ -221,7 +223,7 @@
             // 
             this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(845, 294);
+            this.checkBox6.Location = new System.Drawing.Point(845, 284);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(111, 17);
             this.checkBox6.TabIndex = 14;
@@ -233,7 +235,7 @@
             // 
             this.checkBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(845, 317);
+            this.checkBox7.Location = new System.Drawing.Point(845, 307);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(116, 17);
             this.checkBox7.TabIndex = 15;
@@ -244,7 +246,7 @@
             // butInicio
             // 
             this.butInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butInicio.Location = new System.Drawing.Point(815, 356);
+            this.butInicio.Location = new System.Drawing.Point(815, 346);
             this.butInicio.Name = "butInicio";
             this.butInicio.Size = new System.Drawing.Size(75, 23);
             this.butInicio.TabIndex = 16;
@@ -255,7 +257,7 @@
             // butPausa
             // 
             this.butPausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butPausa.Location = new System.Drawing.Point(912, 356);
+            this.butPausa.Location = new System.Drawing.Point(912, 346);
             this.butPausa.Name = "butPausa";
             this.butPausa.Size = new System.Drawing.Size(75, 23);
             this.butPausa.TabIndex = 17;
@@ -272,11 +274,11 @@
             // 
             this.labelTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTiempo.AutoSize = true;
-            this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTiempo.ForeColor = System.Drawing.Color.Blue;
-            this.labelTiempo.Location = new System.Drawing.Point(795, 532);
+            this.labelTiempo.Location = new System.Drawing.Point(794, 562);
             this.labelTiempo.Name = "labelTiempo";
-            this.labelTiempo.Size = new System.Drawing.Size(66, 25);
+            this.labelTiempo.Size = new System.Drawing.Size(55, 24);
             this.labelTiempo.TabIndex = 18;
             this.labelTiempo.Text = "00:00";
             this.labelTiempo.Click += new System.EventHandler(this.LabelTiempo_Click);
@@ -415,6 +417,7 @@
             this.comboRutas.Name = "comboRutas";
             this.comboRutas.Size = new System.Drawing.Size(121, 21);
             this.comboRutas.TabIndex = 19;
+            this.comboRutas.SelectedIndexChanged += new System.EventHandler(this.ComboRutas_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -431,18 +434,47 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(797, 510);
+            this.label4.Location = new System.Drawing.Point(812, 532);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Momento:";
             this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
+            // tiempo
+            // 
+            this.tiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tiempo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tiempo.FormattingEnabled = true;
+            this.tiempo.Items.AddRange(new object[] {
+            "20",
+            "30",
+            "40",
+            "50",
+            "60"});
+            this.tiempo.Location = new System.Drawing.Point(935, 494);
+            this.tiempo.Name = "tiempo";
+            this.tiempo.Size = new System.Drawing.Size(52, 21);
+            this.tiempo.TabIndex = 22;
+            this.tiempo.SelectedIndexChanged += new System.EventHandler(this.Tiempo_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(824, 497);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Tiempo de buses:";
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 598);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tiempo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboRutas);
@@ -496,5 +528,7 @@
         private System.Windows.Forms.ComboBox comboRutas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox tiempo;
+        private System.Windows.Forms.Label label5;
     }
 }

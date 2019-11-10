@@ -21,6 +21,9 @@ namespace MetroCaliSimulator
 
         private bool isVisible;
 
+
+        List<Bus> buses;
+
         GMapOverlay Poligono;
         public MapaMio(Form1 v)
         {
@@ -28,6 +31,7 @@ namespace MetroCaliSimulator
             laVentana = v;
             Poligono = new GMapOverlay("POligono");
             isVisible = false;
+            buses = new List<Bus>();
             //cargarMapa();
         }
         private void ButRegresar_Click(object sender, EventArgs e)
@@ -309,8 +313,8 @@ namespace MetroCaliSimulator
         private void drawBus(string draw)
         {
             removeMarkers();
-            List<Bus> theDefinitiveList = laVentana.theMio.theBusTime.Dequeue();
-            labelTiempo.Text = theDefinitiveList[0].dataGramDate;
+            List<Bus> theDefinitiveList = buses;
+            labelTiempo.Text = theDefinitiveList[0].date + " " + theDefinitiveList[0].hour;
             int n = theDefinitiveList.Count();
             
             if (!draw.Equals("") && !draw.Equals("TODAS")) {
@@ -328,7 +332,7 @@ namespace MetroCaliSimulator
                         }
                     }
                 refreshMap();
-                Console.WriteLine("Caca");
+                
                 //}
                 //catch (Exception e) { }
             }
@@ -382,12 +386,29 @@ namespace MetroCaliSimulator
             timerBuses.Start();
         }
 
-        
-
         private void TimerBuses_Tick(object sender, EventArgs e)
         {
-            string draw = comboRutas.Text;
-            drawBus(draw);
+            if (!buses.Any())
+            {
+                buses = laVentana.showBus(int.Parse(tiempo.Text), null);
+            } else
+            {
+                Bus busLast = buses.Last();
+
+                buses.Clear();
+
+                buses = laVentana.showBus(int.Parse(tiempo.Text), busLast);
+            }
+            
+            if(buses.Count > 0)
+            {
+                string draw = comboRutas.Text;
+                drawBus(draw);
+            } else
+            {
+                timerBuses.Stop();
+            }
+            
         }
 
         private void ButPausa_Click(object sender, EventArgs e)
@@ -452,7 +473,6 @@ namespace MetroCaliSimulator
 
         public void polygonStation()
         {
-            //Queue<List<Stop>> queue = new Queue<List<Stop>>();
             int j;
             for(int i = 0; i < laVentana.theMio.stopStations.Count; i++)
             {
@@ -575,6 +595,21 @@ namespace MetroCaliSimulator
                 isVisible = false;
                 refreshMap();
             }
+        }
+
+        private void ComboRutas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tiempo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
