@@ -33,6 +33,7 @@ namespace MetroCaliSimulator
             isVisible = false;
             buses = new List<Bus>();
             //cargarMapa();
+          
         }
         private void ButRegresar_Click(object sender, EventArgs e)
         {
@@ -69,10 +70,7 @@ namespace MetroCaliSimulator
                     loadStops(3);
                 }
             }
-            refreshMap();
-            comboFiltrar.Text = "";
-            search(textBoxBuscar.Text);
-            textBoxBuscar.Text = "";
+                refreshMap();
         }
 
         private void stationsMarket(Stop theStop) {
@@ -123,7 +121,7 @@ namespace MetroCaliSimulator
                 gMapMapaMio.Overlays.Add(markers);
             }
             else if (comboFiltrar.Text.Equals("Estaciones"))
-            {
+            {       
                 Stop searched = laVentana.theMio.stopStations.FirstOrDefault(x => x.shortName.Equals(id) || x.longName.Equals(id));
                 if (searched != null)
                 {
@@ -137,6 +135,7 @@ namespace MetroCaliSimulator
                     streetsMarket(searched);
                 }
             }
+            refreshMap();
         }
 
         private void addLabelPoint(GMapMarker theMarker, Stop theStop) {
@@ -392,7 +391,7 @@ namespace MetroCaliSimulator
             {
                 if (!buses.Any())
                 {
-                    buses = laVentana.showBus(int.Parse(tiempo.Text), null);
+                        buses = laVentana.showBus(int.Parse(tiempo.Text), null);
                 }
                 else
                 {
@@ -615,6 +614,17 @@ namespace MetroCaliSimulator
         private void Tiempo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void butSearch_Click(object sender, EventArgs e)
+        {
+            if (textBoxBuscar.Text.Equals(""))
+            {
+                MessageBox.Show("Escribe una parada");
+            }
+            
+            search(textBoxBuscar.Text);
+            textBoxBuscar.Text = "";
         }
     }
 }

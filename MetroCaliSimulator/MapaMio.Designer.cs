@@ -53,6 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tiempo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.butSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // splitter1
@@ -74,7 +75,7 @@
             this.gMapMapaMio.GrayScaleMode = false;
             this.gMapMapaMio.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapMapaMio.LevelsKeepInMemmory = 5;
-            this.gMapMapaMio.Location = new System.Drawing.Point(12, 12);
+            this.gMapMapaMio.Location = new System.Drawing.Point(12, 24);
             this.gMapMapaMio.MarkersEnabled = true;
             this.gMapMapaMio.MaxZoom = 2;
             this.gMapMapaMio.MinZoom = 2;
@@ -144,7 +145,7 @@
             this.textBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxBuscar.Location = new System.Drawing.Point(845, 78);
             this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(121, 20);
+            this.textBoxBuscar.Size = new System.Drawing.Size(100, 20);
             this.textBoxBuscar.TabIndex = 6;
             // 
             // butEliminar
@@ -447,10 +448,8 @@
             this.tiempo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tiempo.FormattingEnabled = true;
             this.tiempo.Items.AddRange(new object[] {
-            "20",
+            "1",
             "30",
-            "40",
-            "50",
             "60"});
             this.tiempo.Location = new System.Drawing.Point(935, 494);
             this.tiempo.Name = "tiempo";
@@ -468,11 +467,22 @@
             this.label5.Text = "Tiempo de buses:";
             this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
+            // butSearch
+            // 
+            this.butSearch.Location = new System.Drawing.Point(951, 76);
+            this.butSearch.Name = "butSearch";
+            this.butSearch.Size = new System.Drawing.Size(48, 23);
+            this.butSearch.TabIndex = 24;
+            this.butSearch.Text = "Buscar";
+            this.butSearch.UseVisualStyleBackColor = true;
+            this.butSearch.Click += new System.EventHandler(this.butSearch_Click);
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 598);
+            this.Controls.Add(this.butSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tiempo);
             this.Controls.Add(this.label4);
@@ -530,5 +540,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox tiempo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button butSearch;
     }
 }
