@@ -97,8 +97,7 @@ namespace MetroCaliSimulator
 
         private void ButEliminar_Click(object sender, EventArgs e)
         {
-            removeMarkers();
-            
+           removeMarkers();
         }
 
         private void removeMarkers() {
@@ -625,6 +624,15 @@ namespace MetroCaliSimulator
             
             search(textBoxBuscar.Text);
             textBoxBuscar.Text = "";
+        }
+
+        private void loadArchive_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                laVentana.openArchive(ofd.FileName);
+            }
         }
     }
 }

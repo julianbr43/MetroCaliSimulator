@@ -17,6 +17,7 @@ namespace MetroCaliSimulator
     {
         public MioSystem theMio { get; set; }
         public MapaMio elMapaMio { get; set; }
+        private String archive;
         public Form1()
         {
             InitializeComponent();
@@ -88,10 +89,15 @@ namespace MetroCaliSimulator
             serializar();
         }
 
+        public void openArchive(String archive) {
+            this.archive = archive;
+        }
+
         public List<Bus> showBus(int time, Bus last)
         {
             List<Bus> listTheBus = new List<Bus>();
-            StreamReader read = new StreamReader(@"archivos/DATAGRAMS.csv");
+            
+            StreamReader read = new StreamReader(archive);
             String line = "";
             Bus principal = null;
             String[] infoBus;

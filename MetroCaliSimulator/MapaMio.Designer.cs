@@ -54,6 +54,7 @@
             this.tiempo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.butSearch = new System.Windows.Forms.Button();
+            this.loadArchive = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // splitter1
@@ -97,9 +98,9 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(860, 442);
+            this.butRegresar.Location = new System.Drawing.Point(860, 454);
             this.butRegresar.Name = "butRegresar";
-            this.butRegresar.Size = new System.Drawing.Size(85, 34);
+            this.butRegresar.Size = new System.Drawing.Size(85, 23);
             this.butRegresar.TabIndex = 2;
             this.butRegresar.Text = "Regresar";
             this.butRegresar.UseVisualStyleBackColor = true;
@@ -151,9 +152,9 @@
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(860, 391);
+            this.butEliminar.Location = new System.Drawing.Point(847, 425);
             this.butEliminar.Name = "butEliminar";
-            this.butEliminar.Size = new System.Drawing.Size(85, 34);
+            this.butEliminar.Size = new System.Drawing.Size(115, 23);
             this.butEliminar.TabIndex = 8;
             this.butEliminar.Text = "Eliminar Marcadores";
             this.butEliminar.UseVisualStyleBackColor = true;
@@ -477,11 +478,22 @@
             this.butSearch.UseVisualStyleBackColor = true;
             this.butSearch.Click += new System.EventHandler(this.butSearch_Click);
             // 
+            // loadArchive
+            // 
+            this.loadArchive.Location = new System.Drawing.Point(860, 387);
+            this.loadArchive.Name = "loadArchive";
+            this.loadArchive.Size = new System.Drawing.Size(86, 23);
+            this.loadArchive.TabIndex = 25;
+            this.loadArchive.Text = "Load Archive";
+            this.loadArchive.UseVisualStyleBackColor = true;
+            this.loadArchive.Click += new System.EventHandler(this.loadArchive_Click);
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 598);
+            this.Controls.Add(this.loadArchive);
             this.Controls.Add(this.butSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tiempo);
@@ -541,5 +553,6 @@
         private System.Windows.Forms.ComboBox tiempo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button butSearch;
+        private System.Windows.Forms.Button loadArchive;
     }
 }
