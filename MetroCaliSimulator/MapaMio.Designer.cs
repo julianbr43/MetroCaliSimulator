@@ -484,7 +484,7 @@
             this.loadArchive.Name = "loadArchive";
             this.loadArchive.Size = new System.Drawing.Size(86, 23);
             this.loadArchive.TabIndex = 25;
-            this.loadArchive.Text = "Load Archive";
+            this.loadArchive.Text = "Cargar Archivo";
             this.loadArchive.UseVisualStyleBackColor = true;
             this.loadArchive.Click += new System.EventHandler(this.loadArchive_Click);
             // 
