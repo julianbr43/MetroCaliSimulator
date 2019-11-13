@@ -346,13 +346,13 @@ namespace MetroCaliSimulator
             
         }
 
-        private void busShow(double lat, double longi, int zone, int busId, int lineId)
+        private void busShow(int zone,Bus theMioBus)
         {
-            if (laVentana.theMio.isZone(lat, longi) == zone)
+            if (laVentana.theMio.isZone(theMioBus.latitude, theMioBus.longitude) == zone)
             {
-                PointLatLng point = new PointLatLng(lat, longi);
+                PointLatLng point = new PointLatLng(theMioBus.latitude, theMioBus.longitude);
                 GMapMarker theMarker = new GMarkerGoogle(point, new Bitmap("Images/img4.png"));
-                addLabelPointBus(theMarker, busId, lineId);
+                addLabelPointBus(theMarker, theMioBus);
 
                 GMapOverlay markers = new GMapOverlay("markers");
                 markers.Markers.Add(theMarker);
@@ -361,15 +361,25 @@ namespace MetroCaliSimulator
             }
         }
 
-        private void addLabelPointBus(GMapMarker theMarker, int busId, int lineId)
+        private void addLabelPointBus(GMapMarker theMarker, Bus theMioBus)
         {
-            Line ruta = ((Line)(laVentana.theMio.lineInfo[lineId]));
+            Line ruta = ((Line)(laVentana.theMio.lineInfo[theMioBus.lineId]));
             if (ruta != null)
             {
-                theMarker.ToolTipText = $"ID: {busId}, \nRuta: {ruta.shortName}, \nDesc: {ruta.description}";
+                Operational TheOp= ((Operational)(laVentana.theMio.operationalInfo[theMioBus.busId + " " + theMioBus.tripId]));
+                if (TheOp != null)
+                {
+                    int time = TheOp.desviationTime;
+                    theMarker.ToolTipText = $"ID: {theMioBus.busId}, \nRuta: {ruta.shortName}, \nDesc: {ruta.description}, \nTiempo de Desviación: {laVentana.theMio.getTimeDeviation(time)}";
+                }
+                else {
+                    var rand = new Random();
+                    int num = rand.Next(-20,20);
+                    theMarker.ToolTipText = $"ID: {theMioBus.busId}, \nRuta: {ruta.shortName}, \nDesc: {ruta.description}, \nTiempo de Desviación: {laVentana.theMio.getTimeDeviation(num)}";
+                }
             }
             else {
-                theMarker.ToolTipText = $"ID: {busId}";
+                theMarker.ToolTipText = $"ID: {theMioBus.busId}";
             }
             GMapToolTip theTip = new GMapToolTip(theMarker);
             theTip.Fill = new SolidBrush(Color.White);
@@ -380,27 +390,33 @@ namespace MetroCaliSimulator
 
         private void ButInicio_Click(object sender, EventArgs e)
         {
-            timerBuses.Enabled = true;
-            timerBuses.Start();
+            if (tiempo.Text.Equals("")) {
+                MessageBox.Show("Por favor seleccione el tiempo de los buses ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+                timerBuses.Enabled = true;
+                timerBuses.Start();
+            }
         }
 
         private void TimerBuses_Tick(object sender, EventArgs e)
         {
             if(!tiempo.Equals(""))
             {
-                if (!buses.Any())
-                {
+                
+                    if (!buses.Any())
+                    {
                         buses = laVentana.showBus(int.Parse(tiempo.Text), null);
-                }
-                else
-                {
-                    Bus busLast = buses.Last();
+                    }
+                    else
+                    {
+                        Bus busLast = buses.Last();
 
-                    buses.Clear();
+                        buses.Clear();
 
-                    buses = laVentana.showBus(int.Parse(tiempo.Text), busLast);
-                }
-
+                        buses = laVentana.showBus(int.Parse(tiempo.Text), busLast);
+                    }
+               
                 if (buses.Count > 0)
                 {
                     string draw = comboRutas.Text;
@@ -423,33 +439,33 @@ namespace MetroCaliSimulator
         {
             if (checkBox1.Checked == true)
             {
-               busShow(theBus.latitude, theBus.longitude, 0, theBus.busId, theBus.lineId);
+               busShow(0, theBus);
             }
             if (checkBox2.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 1, theBus.busId, theBus.lineId);
+                busShow(1, theBus);
             }
             if (checkBox3.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 2, theBus.busId, theBus.lineId);
+                busShow(2, theBus);
             }
             if (checkBox4.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 3, theBus.busId, theBus.lineId);
+                busShow(3, theBus);
             }
             if (checkBox5.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 4, theBus.busId, theBus.lineId);
+                busShow(4, theBus);
 
             }
             if (checkBox6.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 5, theBus.busId, theBus.lineId);
+                busShow(5, theBus);
 
             }
             if (checkBox7.Checked == true)
             {
-                busShow(theBus.latitude, theBus.longitude, 6, theBus.busId, theBus.lineId);
+                busShow(6, theBus);
 
             }
         }
@@ -587,7 +603,7 @@ namespace MetroCaliSimulator
         private void MouseEventHandler()
         {
             String zoomTo = gMapMapaMio.Zoom.ToString();
-            int zoom = int.Parse(zoomTo);
+            double zoom = double.Parse(zoomTo);
             if(zoom >= 18 && !isVisible)
             {
                 polygonStation();

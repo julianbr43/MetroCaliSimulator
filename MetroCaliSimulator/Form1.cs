@@ -25,6 +25,7 @@ namespace MetroCaliSimulator
             theMio = new MioSystem();
             //dataRead();
             deserializar();
+            //Console.WriteLine(((Operational)(theMio.operationalInfo["47 241"])).desviationTime);
         }
 
         
@@ -49,6 +50,21 @@ namespace MetroCaliSimulator
             theMio = (MioSystem)formateador.Deserialize(fs);
             fs.Close();
         }
+
+        public void dataReadOperational() {
+            StreamReader read = new StreamReader(@"archivos/operationalCasiDef.csv");
+            String line = "";
+            while (!read.EndOfStream) {
+                line = read.ReadLine();
+                String[] dataOperational = line.Split(';');
+                String busIdTripId = dataOperational[0] + " " + dataOperational[2];
+                Operational theOperational = new Operational(busIdTripId, int.Parse(dataOperational[1]));
+                theMio.operationalInfo.Add(theOperational.busIdTripId, theOperational);
+            }
+
+            
+        }
+
         public void dataRead()
         {
             StreamReader read;
@@ -85,9 +101,11 @@ namespace MetroCaliSimulator
                 Line theLine = new Line(int.Parse(infoLine[0]), int.Parse(infoLine[1]), infoLine[2], infoLine[3]);
                 theMio.lineInfo.Add(theLine.lineId, theLine);
             }
+            dataReadOperational();
 
             serializar();
         }
+
 
         public void openArchive(String archive) {
             this.archive = archive;

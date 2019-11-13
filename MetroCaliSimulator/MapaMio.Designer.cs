@@ -278,7 +278,7 @@
             this.labelTiempo.AutoSize = true;
             this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTiempo.ForeColor = System.Drawing.Color.Blue;
-            this.labelTiempo.Location = new System.Drawing.Point(794, 562);
+            this.labelTiempo.Location = new System.Drawing.Point(811, 556);
             this.labelTiempo.Name = "labelTiempo";
             this.labelTiempo.Size = new System.Drawing.Size(55, 24);
             this.labelTiempo.TabIndex = 18;
@@ -438,9 +438,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(812, 532);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Momento:";
+            this.label4.Text = "Hora :";
             this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // tiempo
@@ -460,6 +460,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(824, 497);
             this.label5.Name = "label5";
@@ -470,6 +471,7 @@
             // 
             // butSearch
             // 
+            this.butSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butSearch.Location = new System.Drawing.Point(951, 76);
             this.butSearch.Name = "butSearch";
             this.butSearch.Size = new System.Drawing.Size(48, 23);
@@ -480,6 +482,7 @@
             // 
             // loadArchive
             // 
+            this.loadArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadArchive.Location = new System.Drawing.Point(860, 387);
             this.loadArchive.Name = "loadArchive";
             this.loadArchive.Size = new System.Drawing.Size(86, 23);

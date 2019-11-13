@@ -18,6 +18,7 @@ namespace MetroCaliSimulator.model
         public List<Stop> stopStreets { get; set; }
         public Hashtable theStop { get; set; }
         public Hashtable lineInfo { get; set; }
+        public Hashtable operationalInfo { get; set; }
 
         public MioSystem()
         {
@@ -28,6 +29,7 @@ namespace MetroCaliSimulator.model
             this.theBusTime = new Queue<List<Bus>>();
             this.zonas = new List<Zona>();
             this.lineInfo = new Hashtable();
+            this.operationalInfo = new Hashtable();
             loadZones();
         }
 
@@ -70,6 +72,30 @@ namespace MetroCaliSimulator.model
                 }
             }
             return pos;
+        }
+
+        public string getTimeDeviation(int time) {
+
+            string type = "";
+            double num = 0;
+            string posneg = "";
+            if (time > 0) {
+                posneg = " Adelantado";
+            }
+            else if (time < 0){
+                posneg = " de Retrazo";
+                time = Math.Abs(time);
+            }
+            if (time > 60)
+            {
+                type = "Minutos";
+                num = time / 60.0;
+            }
+            else {
+                type = "Segundos";
+                num = time;
+            }
+            return num.ToString("0.00") + " " + type + posneg;
         }
 
     }
