@@ -33,8 +33,6 @@
             this.gMapMapaMio = new GMap.NET.WindowsForms.GMapControl();
             this.butRegresar = new System.Windows.Forms.Button();
             this.comboFiltrar = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.butEliminar = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -49,10 +47,7 @@
             this.timerBuses = new System.Windows.Forms.Timer(this.components);
             this.labelTiempo = new System.Windows.Forms.Label();
             this.comboRutas = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tiempo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.butSearch = new System.Windows.Forms.Button();
             this.loadArchive = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -61,7 +56,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(788, 598);
+            this.splitter1.Size = new System.Drawing.Size(16, 520);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -76,7 +71,7 @@
             this.gMapMapaMio.GrayScaleMode = false;
             this.gMapMapaMio.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapMapaMio.LevelsKeepInMemmory = 5;
-            this.gMapMapaMio.Location = new System.Drawing.Point(12, 24);
+            this.gMapMapaMio.Location = new System.Drawing.Point(386, 48);
             this.gMapMapaMio.MarkersEnabled = true;
             this.gMapMapaMio.MaxZoom = 2;
             this.gMapMapaMio.MinZoom = 2;
@@ -90,7 +85,7 @@
             this.gMapMapaMio.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapMapaMio.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapMapaMio.ShowTileGridLines = false;
-            this.gMapMapaMio.Size = new System.Drawing.Size(758, 574);
+            this.gMapMapaMio.Size = new System.Drawing.Size(454, 334);
             this.gMapMapaMio.TabIndex = 1;
             this.gMapMapaMio.Zoom = 0D;
             this.gMapMapaMio.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.MouseEventHandler);
@@ -98,12 +93,15 @@
             // butRegresar
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRegresar.Location = new System.Drawing.Point(860, 454);
+            this.butRegresar.BackColor = System.Drawing.Color.Black;
+            this.butRegresar.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butRegresar.ForeColor = System.Drawing.Color.White;
+            this.butRegresar.Location = new System.Drawing.Point(731, 464);
             this.butRegresar.Name = "butRegresar";
             this.butRegresar.Size = new System.Drawing.Size(85, 23);
             this.butRegresar.TabIndex = 2;
-            this.butRegresar.Text = "Regresar";
-            this.butRegresar.UseVisualStyleBackColor = true;
+            this.butRegresar.Text = "REGRESAR";
+            this.butRegresar.UseVisualStyleBackColor = false;
             this.butRegresar.Click += new System.EventHandler(this.ButRegresar_Click);
             // 
             // comboFiltrar
@@ -115,36 +113,16 @@
             "Estaciones",
             "Calles",
             "Todas"});
-            this.comboFiltrar.Location = new System.Drawing.Point(845, 27);
+            this.comboFiltrar.Location = new System.Drawing.Point(200, 115);
             this.comboFiltrar.Name = "comboFiltrar";
             this.comboFiltrar.Size = new System.Drawing.Size(121, 21);
             this.comboFiltrar.TabIndex = 3;
             this.comboFiltrar.SelectedIndexChanged += new System.EventHandler(this.ComboFiltrar_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(824, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Filtrar Paradas";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(824, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Buscar Parada";
-            // 
             // textBoxBuscar
             // 
             this.textBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBuscar.Location = new System.Drawing.Point(845, 78);
+            this.textBoxBuscar.Location = new System.Drawing.Point(200, 156);
             this.textBoxBuscar.Name = "textBoxBuscar";
             this.textBoxBuscar.Size = new System.Drawing.Size(100, 20);
             this.textBoxBuscar.TabIndex = 6;
@@ -152,12 +130,15 @@
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butEliminar.Location = new System.Drawing.Point(847, 425);
+            this.butEliminar.BackColor = System.Drawing.Color.Black;
+            this.butEliminar.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butEliminar.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.butEliminar.Location = new System.Drawing.Point(122, 449);
             this.butEliminar.Name = "butEliminar";
-            this.butEliminar.Size = new System.Drawing.Size(115, 23);
+            this.butEliminar.Size = new System.Drawing.Size(178, 26);
             this.butEliminar.TabIndex = 8;
-            this.butEliminar.Text = "Eliminar Marcadores";
-            this.butEliminar.UseVisualStyleBackColor = true;
+            this.butEliminar.Text = "ELIMINAR MARCADORES";
+            this.butEliminar.UseVisualStyleBackColor = false;
             this.butEliminar.Click += new System.EventHandler(this.ButEliminar_Click);
             // 
             // checkBox1
@@ -165,106 +146,133 @@
             this.checkBox1.AccessibleName = "";
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(845, 169);
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(200, 238);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(85, 17);
+            this.checkBox1.Size = new System.Drawing.Size(67, 17);
             this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Zona Centro";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Text = "CENTRO";
+            this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox2
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(845, 192);
+            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox2.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.ForeColor = System.Drawing.Color.White;
+            this.checkBox2.Location = new System.Drawing.Point(200, 261);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(121, 17);
+            this.checkBox2.Size = new System.Drawing.Size(108, 17);
             this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Zona Universidades";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Text = "UNIVERSIDADES";
+            this.checkBox2.UseVisualStyleBackColor = false;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox3
             // 
             this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(845, 215);
+            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox3.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.ForeColor = System.Drawing.Color.White;
+            this.checkBox3.Location = new System.Drawing.Point(200, 284);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(87, 17);
+            this.checkBox3.Size = new System.Drawing.Size(62, 17);
             this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "Zona Menga";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Text = "MENGA";
+            this.checkBox3.UseVisualStyleBackColor = false;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox4
             // 
             this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(845, 238);
+            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox4.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.ForeColor = System.Drawing.Color.White;
+            this.checkBox4.Location = new System.Drawing.Point(200, 307);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(114, 17);
+            this.checkBox4.Size = new System.Drawing.Size(98, 17);
             this.checkBox4.TabIndex = 12;
-            this.checkBox4.Text = "Zona Chiminangos";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.Text = "CHIMINANGOS";
+            this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox5
             // 
             this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(845, 261);
+            this.checkBox5.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox5.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox5.ForeColor = System.Drawing.Color.White;
+            this.checkBox5.Location = new System.Drawing.Point(200, 330);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(117, 17);
+            this.checkBox5.Size = new System.Drawing.Size(101, 17);
             this.checkBox5.TabIndex = 13;
-            this.checkBox5.Text = "Zona Andres Sanin";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.Text = "ANDRÉS SANÍN";
+            this.checkBox5.UseVisualStyleBackColor = false;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox6
             // 
             this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(845, 284);
+            this.checkBox6.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox6.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6.ForeColor = System.Drawing.Color.White;
+            this.checkBox6.Location = new System.Drawing.Point(200, 353);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(111, 17);
+            this.checkBox6.Size = new System.Drawing.Size(94, 17);
             this.checkBox6.TabIndex = 14;
-            this.checkBox6.Text = "Zona Aguablanca";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.Text = "AGUABLANCA";
+            this.checkBox6.UseVisualStyleBackColor = false;
             this.checkBox6.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // checkBox7
             // 
             this.checkBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(845, 307);
+            this.checkBox7.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox7.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox7.ForeColor = System.Drawing.Color.White;
+            this.checkBox7.Location = new System.Drawing.Point(200, 376);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(116, 17);
+            this.checkBox7.Size = new System.Drawing.Size(106, 17);
             this.checkBox7.TabIndex = 15;
-            this.checkBox7.Text = "Zona Cañaveralejo";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.Text = "CAÑAVERALEJO";
+            this.checkBox7.UseVisualStyleBackColor = false;
             this.checkBox7.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // butInicio
             // 
             this.butInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butInicio.Location = new System.Drawing.Point(815, 346);
+            this.butInicio.BackColor = System.Drawing.Color.Black;
+            this.butInicio.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butInicio.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.butInicio.Location = new System.Drawing.Point(423, 464);
             this.butInicio.Name = "butInicio";
-            this.butInicio.Size = new System.Drawing.Size(75, 23);
+            this.butInicio.Size = new System.Drawing.Size(84, 23);
             this.butInicio.TabIndex = 16;
-            this.butInicio.Text = "Inicio";
-            this.butInicio.UseVisualStyleBackColor = true;
+            this.butInicio.Text = "INICIAR";
+            this.butInicio.UseVisualStyleBackColor = false;
             this.butInicio.Click += new System.EventHandler(this.ButInicio_Click);
             // 
             // butPausa
             // 
             this.butPausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butPausa.Location = new System.Drawing.Point(912, 346);
+            this.butPausa.BackColor = System.Drawing.Color.Black;
+            this.butPausa.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butPausa.ForeColor = System.Drawing.Color.Red;
+            this.butPausa.Location = new System.Drawing.Point(576, 464);
             this.butPausa.Name = "butPausa";
-            this.butPausa.Size = new System.Drawing.Size(75, 23);
+            this.butPausa.Size = new System.Drawing.Size(81, 23);
             this.butPausa.TabIndex = 17;
-            this.butPausa.Text = "Pausa";
-            this.butPausa.UseVisualStyleBackColor = true;
+            this.butPausa.Text = "PAUSAR";
+            this.butPausa.UseVisualStyleBackColor = false;
             this.butPausa.Click += new System.EventHandler(this.ButPausa_Click);
             // 
             // timerBuses
@@ -276,9 +284,10 @@
             // 
             this.labelTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTiempo.AutoSize = true;
+            this.labelTiempo.BackColor = System.Drawing.Color.Transparent;
             this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTiempo.ForeColor = System.Drawing.Color.Blue;
-            this.labelTiempo.Location = new System.Drawing.Point(811, 556);
+            this.labelTiempo.ForeColor = System.Drawing.Color.White;
+            this.labelTiempo.Location = new System.Drawing.Point(452, 422);
             this.labelTiempo.Name = "labelTiempo";
             this.labelTiempo.Size = new System.Drawing.Size(55, 24);
             this.labelTiempo.TabIndex = 18;
@@ -415,33 +424,11 @@
             "U52",
             "U53",
             "TODAS"});
-            this.comboRutas.Location = new System.Drawing.Point(845, 132);
+            this.comboRutas.Location = new System.Drawing.Point(200, 196);
             this.comboRutas.Name = "comboRutas";
             this.comboRutas.Size = new System.Drawing.Size(121, 21);
             this.comboRutas.TabIndex = 19;
             this.comboRutas.SelectedIndexChanged += new System.EventHandler(this.ComboRutas_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(824, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Rutas de buses";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(812, 532);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Hora :";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // tiempo
             // 
@@ -452,56 +439,49 @@
             "1",
             "30",
             "60"});
-            this.tiempo.Location = new System.Drawing.Point(935, 494);
+            this.tiempo.Location = new System.Drawing.Point(803, 422);
             this.tiempo.Name = "tiempo";
             this.tiempo.Size = new System.Drawing.Size(52, 21);
             this.tiempo.TabIndex = 22;
             this.tiempo.SelectedIndexChanged += new System.EventHandler(this.Tiempo_SelectedIndexChanged);
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(824, 497);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Tiempo de buses:";
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
-            // 
             // butSearch
             // 
             this.butSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butSearch.Location = new System.Drawing.Point(951, 76);
+            this.butSearch.BackColor = System.Drawing.Color.Black;
+            this.butSearch.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butSearch.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.butSearch.Location = new System.Drawing.Point(306, 154);
             this.butSearch.Name = "butSearch";
-            this.butSearch.Size = new System.Drawing.Size(48, 23);
+            this.butSearch.Size = new System.Drawing.Size(58, 22);
             this.butSearch.TabIndex = 24;
             this.butSearch.Text = "Buscar";
-            this.butSearch.UseVisualStyleBackColor = true;
+            this.butSearch.UseVisualStyleBackColor = false;
             this.butSearch.Click += new System.EventHandler(this.butSearch_Click);
             // 
             // loadArchive
             // 
             this.loadArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.loadArchive.Location = new System.Drawing.Point(860, 387);
+            this.loadArchive.BackColor = System.Drawing.Color.Black;
+            this.loadArchive.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadArchive.ForeColor = System.Drawing.Color.White;
+            this.loadArchive.Location = new System.Drawing.Point(122, 420);
             this.loadArchive.Name = "loadArchive";
-            this.loadArchive.Size = new System.Drawing.Size(86, 23);
+            this.loadArchive.Size = new System.Drawing.Size(178, 23);
             this.loadArchive.TabIndex = 25;
-            this.loadArchive.Text = "Cargar Archivo";
-            this.loadArchive.UseVisualStyleBackColor = true;
+            this.loadArchive.Text = "CARGAR ARCHIVO";
+            this.loadArchive.UseVisualStyleBackColor = false;
             this.loadArchive.Click += new System.EventHandler(this.loadArchive_Click);
             // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 598);
+            this.BackgroundImage = global::MetroCaliSimulator.Properties.Resources.Menu;
+            this.ClientSize = new System.Drawing.Size(911, 520);
             this.Controls.Add(this.loadArchive);
             this.Controls.Add(this.butSearch);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.tiempo);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.comboRutas);
             this.Controls.Add(this.labelTiempo);
             this.Controls.Add(this.butPausa);
@@ -515,8 +495,6 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.butEliminar);
             this.Controls.Add(this.textBoxBuscar);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboFiltrar);
             this.Controls.Add(this.butRegresar);
             this.Controls.Add(this.gMapMapaMio);
@@ -535,8 +513,6 @@
         private GMap.NET.WindowsForms.GMapControl gMapMapaMio;
         private System.Windows.Forms.Button butRegresar;
         private System.Windows.Forms.ComboBox comboFiltrar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button butEliminar;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -551,10 +527,7 @@
         private System.Windows.Forms.Timer timerBuses;
         private System.Windows.Forms.Label labelTiempo;
         private System.Windows.Forms.ComboBox comboRutas;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox tiempo;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button butSearch;
         private System.Windows.Forms.Button loadArchive;
     }

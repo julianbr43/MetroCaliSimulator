@@ -33,12 +33,14 @@
             // 
             // butVerMapa
             // 
-            this.butVerMapa.BackColor = System.Drawing.SystemColors.Control;
-            this.butVerMapa.Location = new System.Drawing.Point(130, 97);
+            this.butVerMapa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.butVerMapa.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butVerMapa.ForeColor = System.Drawing.Color.White;
+            this.butVerMapa.Location = new System.Drawing.Point(174, 173);
             this.butVerMapa.Name = "butVerMapa";
-            this.butVerMapa.Size = new System.Drawing.Size(113, 66);
+            this.butVerMapa.Size = new System.Drawing.Size(211, 31);
             this.butVerMapa.TabIndex = 0;
-            this.butVerMapa.Text = "Ver Simulación";
+            this.butVerMapa.Text = "VER SIMULACIÓN";
             this.butVerMapa.UseVisualStyleBackColor = false;
             this.butVerMapa.Click += new System.EventHandler(this.ButVerMapa_Click);
             // 
@@ -47,7 +49,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(377, 286);
+            this.BackgroundImage = global::MetroCaliSimulator.Properties.Resources.MioPrincipal;
+            this.ClientSize = new System.Drawing.Size(529, 449);
             this.Controls.Add(this.butVerMapa);
             this.Name = "Form1";
             this.Text = "Form1";
