@@ -50,6 +50,7 @@
             this.tiempo = new System.Windows.Forms.ComboBox();
             this.butSearch = new System.Windows.Forms.Button();
             this.loadArchive = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // splitter1
@@ -473,12 +474,25 @@
             this.loadArchive.UseVisualStyleBackColor = false;
             this.loadArchive.Click += new System.EventHandler(this.loadArchive_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(30, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 38);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // MapaMio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MetroCaliSimulator.Properties.Resources.Menu;
             this.ClientSize = new System.Drawing.Size(911, 520);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.loadArchive);
             this.Controls.Add(this.butSearch);
             this.Controls.Add(this.tiempo);
@@ -499,6 +513,7 @@
             this.Controls.Add(this.butRegresar);
             this.Controls.Add(this.gMapMapaMio);
             this.Controls.Add(this.splitter1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MapaMio";
             this.Text = "MapaMio";
             this.Load += new System.EventHandler(this.MapaMio_Load);
@@ -530,5 +545,6 @@
         private System.Windows.Forms.ComboBox tiempo;
         private System.Windows.Forms.Button butSearch;
         private System.Windows.Forms.Button loadArchive;
+        private System.Windows.Forms.Button button1;
     }
 }

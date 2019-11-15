@@ -650,5 +650,10 @@ namespace MetroCaliSimulator
                 laVentana.openArchive(ofd.FileName);
             }
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
