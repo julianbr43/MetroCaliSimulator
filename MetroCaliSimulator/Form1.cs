@@ -114,8 +114,14 @@ namespace MetroCaliSimulator
         public List<Bus> showBus(int time, Bus last)
         {
             List<Bus> listTheBus = new List<Bus>();
-            
-            StreamReader read = new StreamReader(archive);
+            StreamReader read;
+            try
+            {
+                read = new StreamReader(archive);
+            }
+            catch (Exception ex){
+                read = new StreamReader(@"archivos/DATAGRAMDEF.csv");
+            }
             String line = "";
             Bus principal = null;
             String[] infoBus;
