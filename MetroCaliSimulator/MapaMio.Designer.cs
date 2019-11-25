@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.gMapMapaMio = new GMap.NET.WindowsForms.GMapControl();
             this.butRegresar = new System.Windows.Forms.Button();
             this.comboFiltrar = new System.Windows.Forms.ComboBox();
@@ -55,14 +54,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(16, 520);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
-            // 
             // gMapMapaMio
             // 
             this.gMapMapaMio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -74,7 +65,7 @@
             this.gMapMapaMio.GrayScaleMode = false;
             this.gMapMapaMio.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapMapaMio.LevelsKeepInMemmory = 5;
-            this.gMapMapaMio.Location = new System.Drawing.Point(386, 48);
+            this.gMapMapaMio.Location = new System.Drawing.Point(454, 73);
             this.gMapMapaMio.MarkersEnabled = true;
             this.gMapMapaMio.MaxZoom = 2;
             this.gMapMapaMio.MinZoom = 2;
@@ -88,7 +79,7 @@
             this.gMapMapaMio.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapMapaMio.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapMapaMio.ShowTileGridLines = false;
-            this.gMapMapaMio.Size = new System.Drawing.Size(454, 334);
+            this.gMapMapaMio.Size = new System.Drawing.Size(805, 518);
             this.gMapMapaMio.TabIndex = 1;
             this.gMapMapaMio.Zoom = 0D;
             this.gMapMapaMio.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.MouseEventHandler);
@@ -97,11 +88,11 @@
             // 
             this.butRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butRegresar.BackColor = System.Drawing.Color.Black;
-            this.butRegresar.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butRegresar.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butRegresar.ForeColor = System.Drawing.Color.White;
-            this.butRegresar.Location = new System.Drawing.Point(731, 464);
+            this.butRegresar.Location = new System.Drawing.Point(839, 691);
             this.butRegresar.Name = "butRegresar";
-            this.butRegresar.Size = new System.Drawing.Size(85, 23);
+            this.butRegresar.Size = new System.Drawing.Size(117, 36);
             this.butRegresar.TabIndex = 2;
             this.butRegresar.Text = "REGRESAR";
             this.butRegresar.UseVisualStyleBackColor = false;
@@ -116,29 +107,29 @@
             "Estaciones",
             "Calles",
             "Todas"});
-            this.comboFiltrar.Location = new System.Drawing.Point(200, 115);
+            this.comboFiltrar.Location = new System.Drawing.Point(249, 153);
             this.comboFiltrar.Name = "comboFiltrar";
-            this.comboFiltrar.Size = new System.Drawing.Size(121, 21);
+            this.comboFiltrar.Size = new System.Drawing.Size(161, 21);
             this.comboFiltrar.TabIndex = 3;
             this.comboFiltrar.SelectedIndexChanged += new System.EventHandler(this.ComboFiltrar_SelectedIndexChanged);
             // 
             // textBoxBuscar
             // 
             this.textBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBuscar.Location = new System.Drawing.Point(200, 156);
+            this.textBoxBuscar.Location = new System.Drawing.Point(249, 194);
             this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBuscar.Size = new System.Drawing.Size(161, 20);
             this.textBoxBuscar.TabIndex = 6;
             // 
             // butEliminar
             // 
             this.butEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butEliminar.BackColor = System.Drawing.Color.Black;
-            this.butEliminar.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butEliminar.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butEliminar.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.butEliminar.Location = new System.Drawing.Point(122, 449);
+            this.butEliminar.Location = new System.Drawing.Point(172, 688);
             this.butEliminar.Name = "butEliminar";
-            this.butEliminar.Size = new System.Drawing.Size(178, 26);
+            this.butEliminar.Size = new System.Drawing.Size(210, 39);
             this.butEliminar.TabIndex = 8;
             this.butEliminar.Text = "ELIMINAR MARCADORES";
             this.butEliminar.UseVisualStyleBackColor = false;
@@ -150,11 +141,11 @@
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(200, 238);
+            this.checkBox1.Location = new System.Drawing.Point(249, 324);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(67, 17);
+            this.checkBox1.Size = new System.Drawing.Size(100, 26);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "CENTRO";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -165,11 +156,11 @@
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(200, 261);
+            this.checkBox2.Location = new System.Drawing.Point(249, 514);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(108, 17);
+            this.checkBox2.Size = new System.Drawing.Size(175, 26);
             this.checkBox2.TabIndex = 10;
             this.checkBox2.Text = "UNIVERSIDADES";
             this.checkBox2.UseVisualStyleBackColor = false;
@@ -180,11 +171,11 @@
             this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
             this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(200, 284);
+            this.checkBox3.Location = new System.Drawing.Point(249, 292);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(62, 17);
+            this.checkBox3.Size = new System.Drawing.Size(92, 26);
             this.checkBox3.TabIndex = 11;
             this.checkBox3.Text = "MENGA";
             this.checkBox3.UseVisualStyleBackColor = false;
@@ -195,11 +186,11 @@
             this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(200, 307);
+            this.checkBox4.Location = new System.Drawing.Point(249, 388);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(98, 17);
+            this.checkBox4.Size = new System.Drawing.Size(158, 26);
             this.checkBox4.TabIndex = 12;
             this.checkBox4.Text = "CHIMINANGOS";
             this.checkBox4.UseVisualStyleBackColor = false;
@@ -210,11 +201,11 @@
             this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
             this.checkBox5.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox5.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox5.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox5.ForeColor = System.Drawing.Color.White;
-            this.checkBox5.Location = new System.Drawing.Point(200, 330);
+            this.checkBox5.Location = new System.Drawing.Point(249, 430);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(101, 17);
+            this.checkBox5.Size = new System.Drawing.Size(163, 26);
             this.checkBox5.TabIndex = 13;
             this.checkBox5.Text = "ANDRÉS SANÍN";
             this.checkBox5.UseVisualStyleBackColor = false;
@@ -225,11 +216,11 @@
             this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox6.AutoSize = true;
             this.checkBox6.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox6.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox6.ForeColor = System.Drawing.Color.White;
-            this.checkBox6.Location = new System.Drawing.Point(200, 353);
+            this.checkBox6.Location = new System.Drawing.Point(249, 356);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(94, 17);
+            this.checkBox6.Size = new System.Drawing.Size(149, 26);
             this.checkBox6.TabIndex = 14;
             this.checkBox6.Text = "AGUABLANCA";
             this.checkBox6.UseVisualStyleBackColor = false;
@@ -240,11 +231,11 @@
             this.checkBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox7.AutoSize = true;
             this.checkBox7.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox7.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox7.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox7.ForeColor = System.Drawing.Color.White;
-            this.checkBox7.Location = new System.Drawing.Point(200, 376);
+            this.checkBox7.Location = new System.Drawing.Point(249, 471);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(106, 17);
+            this.checkBox7.Size = new System.Drawing.Size(167, 26);
             this.checkBox7.TabIndex = 15;
             this.checkBox7.Text = "CAÑAVERALEJO";
             this.checkBox7.UseVisualStyleBackColor = false;
@@ -254,11 +245,11 @@
             // 
             this.butInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butInicio.BackColor = System.Drawing.Color.Black;
-            this.butInicio.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butInicio.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butInicio.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.butInicio.Location = new System.Drawing.Point(423, 464);
+            this.butInicio.Location = new System.Drawing.Point(454, 691);
             this.butInicio.Name = "butInicio";
-            this.butInicio.Size = new System.Drawing.Size(84, 23);
+            this.butInicio.Size = new System.Drawing.Size(116, 36);
             this.butInicio.TabIndex = 16;
             this.butInicio.Text = "INICIAR";
             this.butInicio.UseVisualStyleBackColor = false;
@@ -268,11 +259,11 @@
             // 
             this.butPausa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butPausa.BackColor = System.Drawing.Color.Black;
-            this.butPausa.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butPausa.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butPausa.ForeColor = System.Drawing.Color.Red;
-            this.butPausa.Location = new System.Drawing.Point(576, 464);
+            this.butPausa.Location = new System.Drawing.Point(661, 691);
             this.butPausa.Name = "butPausa";
-            this.butPausa.Size = new System.Drawing.Size(81, 23);
+            this.butPausa.Size = new System.Drawing.Size(113, 36);
             this.butPausa.TabIndex = 17;
             this.butPausa.Text = "PAUSAR";
             this.butPausa.UseVisualStyleBackColor = false;
@@ -290,7 +281,7 @@
             this.labelTiempo.BackColor = System.Drawing.Color.Transparent;
             this.labelTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTiempo.ForeColor = System.Drawing.Color.White;
-            this.labelTiempo.Location = new System.Drawing.Point(452, 422);
+            this.labelTiempo.Location = new System.Drawing.Point(527, 657);
             this.labelTiempo.Name = "labelTiempo";
             this.labelTiempo.Size = new System.Drawing.Size(55, 24);
             this.labelTiempo.TabIndex = 18;
@@ -427,9 +418,9 @@
             "U52",
             "U53",
             "TODAS"});
-            this.comboRutas.Location = new System.Drawing.Point(200, 196);
+            this.comboRutas.Location = new System.Drawing.Point(251, 242);
             this.comboRutas.Name = "comboRutas";
-            this.comboRutas.Size = new System.Drawing.Size(121, 21);
+            this.comboRutas.Size = new System.Drawing.Size(161, 21);
             this.comboRutas.TabIndex = 19;
             this.comboRutas.SelectedIndexChanged += new System.EventHandler(this.ComboRutas_SelectedIndexChanged);
             // 
@@ -442,7 +433,7 @@
             "1",
             "30",
             "60"});
-            this.tiempo.Location = new System.Drawing.Point(803, 422);
+            this.tiempo.Location = new System.Drawing.Point(1099, 662);
             this.tiempo.Name = "tiempo";
             this.tiempo.Size = new System.Drawing.Size(52, 21);
             this.tiempo.TabIndex = 22;
@@ -452,11 +443,11 @@
             // 
             this.butSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butSearch.BackColor = System.Drawing.Color.Black;
-            this.butSearch.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butSearch.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butSearch.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.butSearch.Location = new System.Drawing.Point(306, 154);
+            this.butSearch.Location = new System.Drawing.Point(251, 555);
             this.butSearch.Name = "butSearch";
-            this.butSearch.Size = new System.Drawing.Size(58, 22);
+            this.butSearch.Size = new System.Drawing.Size(108, 36);
             this.butSearch.TabIndex = 24;
             this.butSearch.Text = "Buscar";
             this.butSearch.UseVisualStyleBackColor = false;
@@ -466,11 +457,11 @@
             // 
             this.loadArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadArchive.BackColor = System.Drawing.Color.Black;
-            this.loadArchive.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadArchive.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadArchive.ForeColor = System.Drawing.Color.White;
-            this.loadArchive.Location = new System.Drawing.Point(122, 420);
+            this.loadArchive.Location = new System.Drawing.Point(172, 644);
             this.loadArchive.Name = "loadArchive";
-            this.loadArchive.Size = new System.Drawing.Size(178, 23);
+            this.loadArchive.Size = new System.Drawing.Size(210, 36);
             this.loadArchive.TabIndex = 25;
             this.loadArchive.Text = "CARGAR ARCHIVO";
             this.loadArchive.UseVisualStyleBackColor = false;
@@ -480,9 +471,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(30, 39);
+            this.button1.Location = new System.Drawing.Point(25, 56);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 38);
+            this.button1.Size = new System.Drawing.Size(36, 37);
             this.button1.TabIndex = 26;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
@@ -518,8 +509,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::MetroCaliSimulator.Properties.Resources.Menu;
-            this.ClientSize = new System.Drawing.Size(911, 520);
+            this.BackgroundImage = global::MetroCaliSimulator.Properties.Resources.imagenFondo2;
+            this.ClientSize = new System.Drawing.Size(1357, 762);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -542,10 +533,10 @@
             this.Controls.Add(this.comboFiltrar);
             this.Controls.Add(this.butRegresar);
             this.Controls.Add(this.gMapMapaMio);
-            this.Controls.Add(this.splitter1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MapaMio";
             this.Text = "MapaMio";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MapaMio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -553,8 +544,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Splitter splitter1;
         private GMap.NET.WindowsForms.GMapControl gMapMapaMio;
         private System.Windows.Forms.Button butRegresar;
         private System.Windows.Forms.ComboBox comboFiltrar;
