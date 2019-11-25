@@ -667,7 +667,7 @@ namespace MetroCaliSimulator
                 WindowState = FormWindowState.Normal;
             }
         }
-
+        
         private void Button3_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
@@ -679,5 +679,6 @@ namespace MetroCaliSimulator
                 WindowState = FormWindowState.Normal;
             }
         }
+        
     }
 }
